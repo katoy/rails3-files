@@ -1,0 +1,28 @@
+<h1>Listing downloads</h1>
+
+<%= link_to "download rails Logo",:action=>'act1' %>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Path</th>
+    <th></th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @downloads.each do |download| %>
+  <tr>
+    <td><%= download.name %></td>
+    <td><%= link_to "download", download.path, {download: File.basename(download.path)} %></td>
+    <td><input type="button" class="download" value="ダウンロード" data="<%= download.path %>" /></td>
+    <td><%= link_to 'Edit', edit_download_path(download) %></td>
+    <td><%= link_to 'Destroy', download, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Download', new_download_path %>
