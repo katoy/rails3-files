@@ -2,8 +2,8 @@
 
 one:
   name: file-001.txt
-  path: downloads/foo/file-001.txt
+  path: files/foo/file-001.txt
 
 two:
   name: file-002.txt
-  path: downloads/foo/file-002.txt
+  path: files/foo/file-002.txt

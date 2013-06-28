@@ -81,7 +81,11 @@ class DownloadsController < ApplicationController
     end
   end
 
+
+  # See http://maskana-soft.com/rails/pro/body/63
+  #     ファイルのダウンロードができるようにしよう(send_file,send_data)
   def act1
-    send_file("public/downloads/foo/File-001.txt")
+    dl = Download.find(params[:id])
+    send_file("./public/#{dl.path}") if dl
   end
 end

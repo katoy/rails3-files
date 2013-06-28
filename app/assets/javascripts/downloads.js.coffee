@@ -5,6 +5,6 @@
 $ ->
   $(".download").click ->
     filepath = $(this).attr("data")
-    window.location = filepath
-    # alert("file:" + filepath)
+    window.location = "/#{filepath}"
+    #alert("file:" + filepath)
     @
