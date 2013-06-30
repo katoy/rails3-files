@@ -1,0 +1,39 @@
+log4r_config:
+  # define all loggers ...
+  loggers:
+    - name      : production
+      level     : WARN
+      trace     : 'false'
+      outputters :
+      - file_log_production
+    - name      : development
+      level     : DEBUG
+      trace     : 'true'
+      outputters :
+      - file_log_development
+      - standard_log_outputter
+  # define all outputters (incl. formatters)
+  outputters:
+  - type: StderrOutputter
+    name: standard_log_outputter
+    level: INFO
+    formatter:
+      date_pattern: '%H:%M:%S'
+      pattern     : "[%d] PID:%p %l %m"
+      type        : PatternFormatter
+  - type: DateFileOutputter
+    name: file_log_production
+    dirname: "log"
+    filename: "production.log" # notice the file extension is needed! 
+    formatter:
+      date_pattern: '%Y-%m-%d %H:%M:%S'
+      pattern     : '%d %l: %m '
+      type        : PatternFormatter
+  - type: DateFileOutputter
+    name: file_log_development
+    dirname: "log"
+    filename: "development.log" # notice the file extension is needed! 
+    formatter:
+      date_pattern: '%Y-%m-%d %H:%M:%S'
+      pattern     : '%d %l: %m '
+      type        : PatternFormatter

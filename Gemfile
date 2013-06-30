@@ -45,6 +45,8 @@ group :development do
   gem 'pry-rails'
 end
 
+gem 'kaminari'
 gem 'log4r'
 
 # gem 'rack-mini-profiler'
+

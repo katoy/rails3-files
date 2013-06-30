@@ -5,5 +5,9 @@ Files::Application.routes.draw do
     member do
       get :act1
     end
+    collection do
+      get :indexServer
+    end
   end
+  
 end

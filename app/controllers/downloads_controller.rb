@@ -10,6 +10,17 @@ class DownloadsController < ApplicationController
     end
   end
 
+  # GET /downloads
+  # GET /downloads.json
+  def indexServer
+    @downloads = Download.order(:id).page(params[:page]).per(10)
+
+    respond_to do |format|
+      format.html # index.html.erb
+      format.json { render json: @downloads }
+    end
+  end
+
   # GET /downloads/1
   # GET /downloads/1.json
   def show

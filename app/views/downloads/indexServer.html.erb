@@ -1,10 +1,9 @@
-<h1>Listing downloads (paging by client)</h1>
-
+<h1>Listing downloads (pageing by server)</h1>
 
 <div id="file-list">
 
   <div>
-    goto: <%= link_to "pagenate by Server", indexServer_downloads_path %>
+    goto : <%= link_to "pagenate by Client", downloads_path %>
   </div>
 
   <div>
@@ -15,9 +14,8 @@
     　<span id="time"></span>
   </div>
 
-  <div class="pagingTop paging"></div>
-  <div class="paging-sep"></div>
-
+  <%= paginate @downloads, :window => 2, :outer_window => 2 %>
+  <div class="page-sep"></div>
   <table class="zebra_stripe">
     <thead>
       <tr>
@@ -31,9 +29,9 @@
       </tr>
     </thead>
     <tbody class="list">
-      <% @downloads.each_with_index do |download, idx| %>
+      <% @downloads.each do |download, idx| %>
       <tr>
-	<td class="no"><%= format('%04d', idx + 1) %>:</td>
+	<td class="no"><%= download.id %>:</td>
 	<td class="open-at"><%= download.open_at.strftime("%Y年%m月%d日 %H:%M:%S") %></td>
 	<td class="name"><%= download.name %></td>
 	<td><%= link_to "download", act1_download_path(download) %></td>
@@ -44,9 +42,8 @@
       <% end %>
     </tbody>
   </table>
-  <div class="paging-sep"></div>
-  <div class="pagingButtom paging"></div>  
-  <div class="paging-sep"></div>
+  <div class="page-sep"></div>
+  <%= paginate @downloads, :window => 2, :outer_window => 2 %>
 </div>
 <br />
 
