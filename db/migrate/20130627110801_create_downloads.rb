@@ -3,6 +3,7 @@ class CreateDownloads < ActiveRecord::Migration
     create_table :downloads do |t|
       t.string :name
       t.string :path
+      t.datetime :open_at
 
       t.timestamps
     end

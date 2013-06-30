@@ -1,3 +1,42 @@
 // Place all the styles related to the Downloads controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+// * * * * * * * * * * * * * * * * * * * *
+//  Paging
+// * * * * * * * * * * * * * * * * * * * *
+1>.paging {
+  padding-bottom: 4px;
+  clear: both;
+  float: left;
+}
+.paging li {
+  display: block;
+  float: left;
+  padding: 4px 15px;
+  border-radius: 50%;
+}
+.paging li a {
+  color: #999;
+  text-decoration: none;
+  display: inline-block;
+  line-height: 14px;
+}
+.paging li.active a {
+  font-weight: bold;
+  color: #eee;
+  font-size: 18px;
+  margin: -1px;
+}
+.paging li a:hover {
+  color: #eee;
+}
+
+.paging-sep {
+    overflow: auto;
+    width: 100%
+}
+
+.zebra_stripe tbody tr:nth-child(even) td,.zebra_stripe tbody tr.even td {
+    background:#e5ecf9;
+}

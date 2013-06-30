@@ -16,6 +16,7 @@ ActiveRecord::Schema.define(:version => 20130627110801) do
   create_table "downloads", :force => true do |t|
     t.string   "name"
     t.string   "path"
+    t.datetime "open_at"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end

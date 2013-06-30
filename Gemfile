@@ -44,3 +44,7 @@ group :development do
   gem 'pry-doc'
   gem 'pry-rails'
 end
+
+gem 'log4r'
+
+# gem 'rack-mini-profiler'
