@@ -10,14 +10,25 @@ class DownloadsController < ApplicationController
     end
   end
 
-  # GET /downloads
-  # GET /downloads.json
-  def indexServer
+  # GET /downloads/indexKaminari
+  # GET /downloads/indexKaminari.json
+  def indexKaminari
     @downloads = Download.order(:id).page(params[:page]).per(10)
 
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @downloads }
+    end
+  end
+
+  # GET /downloads/indexWiceGrid
+  # GET /downloads/indexWiceGrid.json
+  def indexWicegrid
+    @downloads_grid = initialize_grid(Download)
+
+    respond_to do |format|
+      format.html # index.html.erb
+      format.json { render json: @downloads_grid }
     end
   end
 

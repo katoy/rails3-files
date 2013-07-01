@@ -6,7 +6,8 @@ Files::Application.routes.draw do
       get :act1
     end
     collection do
-      get :indexServer
+      get :indexKaminari
+      get :indexWicegrid
     end
   end
   

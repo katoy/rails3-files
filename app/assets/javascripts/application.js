@@ -14,4 +14,5 @@
 //= require jquery_ujs
 //= require list.min.js
 //= require list.paging.min.js
+//= require wice_grid
 //= require_tree .

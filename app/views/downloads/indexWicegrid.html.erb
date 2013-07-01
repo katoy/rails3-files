@@ -1,0 +1,37 @@
+<h1>Listing downloads (pageing by server: Wicegird)</h1>
+
+<div id="file-list center">
+
+  <div>
+    goto : <%= link_to "pagenate by Client", downloads_path %>
+    goto : <%= link_to "pagenate by Server (Kaminari)", indexKaminari_downloads_path %>
+    <br/><br/>
+    <hr/>
+  </div>
+
+
+</div>
+
+<div>
+<%=
+   grid(@downloads_grid) do |g|
+     g.column do |task|
+       task.name
+     end
+  
+     g.column do |task|
+       task.path
+      end
+  
+     g.column do |task|
+       task.open_at.to_s(:short)
+     end
+
+     g.column do |task|
+       link_to('Edit', edit_download_path(task))
+     end
+    end
+%>
+<br />
+
+<%= link_to 'New Download', new_download_path %>

@@ -46,6 +46,7 @@ group :development do
 end
 
 gem 'kaminari'
+gem 'wice_grid'
 gem 'log4r'
 
 # gem 'rack-mini-profiler'
