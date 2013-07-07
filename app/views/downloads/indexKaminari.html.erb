@@ -1,46 +1,46 @@
-<h1>Listing downloads (pageing by server: kaminari)</h1>
+<h1>Listing downloads (paging by server: kaminari)</h1>
 
-<div id="file-list">
+<div>
+  <%= link_to "pagenate by Client", downloads_path %> | 
+  <%= "pagenate by Server (Kaminari)" %> | 
+  <%= link_to "pagenate by Server(Wicegrid)", indexWicegrid_downloads_path %>
+  <br/><br/>
+  <hr/>
+</div>
 
-  <div>
-    goto : <%= link_to "pagenate by Client", downloads_path %>
-    goto : <%= link_to "pagenate by Server (Wicegrid)", indexWicegrid_downloads_path %>
-    <br/><br/>
-    <hr/>
-  </div>
+<div class="center">
   
-  <div class="center">
-    <%= paginate @downloads, :window => 2, :outer_window => 2 %>
-    <div class="page-sep"></div>
-    <table class="zebra_stripe center">
-      <thead>
-	<tr>
-	  <th>No.</th>
-	  <th>公開日</th>
-	  <th>Name</th>
-	  <th></th>
-	  <th></th>
-	  <th></th>
-	  <th></th>
-	</tr>
-      </thead>
-      <tbody class="list">
-	<% @downloads.each do |download, idx| %>
-	<tr>
-	  <td class="no"><%= download.id %>:</td>
-	  <td class="open-at"><%= download.open_at.strftime("%Y年%m月%d日 %H:%M:%S") %></td>
-	  <td class="name"><%= download.name %></td>
-	  <td><%= link_to "download", act1_download_path(download) %></td>
-	  <td><input type="button" class="download" value="ダウンロード" data="<%= download.path %>" /></td>
-	  <td><%= link_to "Edit", edit_download_path(download) %></td>
-	  <td><%= link_to "Destroy", download, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-	</tr>
-	<% end %>
-      </tbody>
-    </table>
-    <div class="page-sep"></div>
-    <%= paginate @downloads, :window => 2, :outer_window => 2 %>
-    <br />
-    <%= link_to 'New Download', new_download_path %>
-  </div>
+  <%= paginate @downloads, :window => 2, :outer_window => 2 %>
+  <div class="page-sep"></div>
+  <table class="zebra_stripe center">
+    <thead>
+      <tr>
+	<th><%= sortable("id", @sort, @direction) -%></th>
+	<th><%= sortable("open_at", @sort, @direction) -%></th>
+	<th><%= sortable("name", @sort, @direction) -%></th>
+	<th></th>
+	<th></th>
+	<th></th>
+	<th></th>
+      </tr>
+    </thead>
+    <tbody class="list">
+      <% @downloads.each do |download, idx| %>
+      <tr>
+	<td><%= download.id %></td>
+	<td><%= I18n.l download.open_at, format: :long %></td>
+	<td><%= download.name %></td>
+	<td><%= link_to "閲覧", "/#{download.path}", target: :"_blank" %>
+	<td><%= link_to "ダウンロード", act1_download_path(download) %></td>
+	<td><%= button_tag "ダウンロード", class: :download,  data: act1_download_path(download) %></td>
+	<td><%= link_to "Edit", edit_download_path(download) %></td>
+	<td><%= link_to "Destroy", download, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+  <div class="page-sep"></div>
+  <%= paginate @downloads, :window => 2, :outer_window => 2 %>
+  <br />
+  <%= link_to 'New Download', new_download_path %>
 </div>

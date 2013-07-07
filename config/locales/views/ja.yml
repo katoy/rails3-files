@@ -6,3 +6,12 @@ ja:
       previous: "« 前ページ"
       next: "次ページ »"
       truncate: "..."
+  activerecord:
+    models:
+      download: "ダウンロード"
+    attributes:
+      download:
+        idx:      "No."
+        id:       "id"
+        open_at:  "公開日"
+        name:     "名前"

@@ -12,7 +12,13 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require jquery.ui.all
+//= require jquery.ui.datepicker-ja
 //= require list.min.js
 //= require list.paging.min.js
 //= require wice_grid
 //= require_tree .
+
+$(document).ready(function(){
+    $( ".datepicker" ).datepicker({dateFormat: 'yy-mm-dd'});
+});

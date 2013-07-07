@@ -1,4 +1,7 @@
 class DownloadsController < ApplicationController
+
+  include DownloadsHelper
+
   # GET /downloads
   # GET /downloads.json
   def index
@@ -13,7 +16,24 @@ class DownloadsController < ApplicationController
   # GET /downloads/indexKaminari
   # GET /downloads/indexKaminari.json
   def indexKaminari
-    @downloads = Download.order(:id).page(params[:page]).per(10)
+
+    @sort = 'id'
+    @sort = params[:sort] if params[:sort]
+    if @sort == session[:sort]
+      @direction = (session[:direction] == 'asc')? 'desc' : 'asc'
+    else
+      @direction = 'asc'
+    end
+
+    if params[:search]
+      @downloads = Download.where("name like :search", search: params[:search]).order("#{@sort} #{@direction}").page(params[:page]).per(10)
+    else
+      @downloads = Download.order("#{@sort} #{@direction}").page(params[:page]).per(10)
+    end
+
+    # セッション保存
+    session[:sort] = @sort
+    session[:direction] = @direction
 
     respond_to do |format|
       format.html # index.html.erb
@@ -24,7 +44,11 @@ class DownloadsController < ApplicationController
   # GET /downloads/indexWiceGrid
   # GET /downloads/indexWiceGrid.json
   def indexWicegrid
-    @downloads_grid = initialize_grid(Download)
+    @downloads_grid = initialize_grid(Download, 
+                                      per_page: 10,
+                                      order: "id",
+                                      order_direction: :desc
+                                      )
 
     respond_to do |format|
       format.html # index.html.erb

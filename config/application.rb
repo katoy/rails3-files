@@ -19,7 +19,8 @@ module Files
   class Application < Rails::Application
 
     # zip して 配信する
-    config.middleware.use Rack::Deflater
+    # mini-profiler をつかうときは comment-out する
+    # config.middleware.use Rack::Deflater
 
     # See http://stackoverflow.com/questions/5664136/how-to-configure-log4r-with-rails-3-0-x
     #   How to configure Log4r with Rails 3.0.x?

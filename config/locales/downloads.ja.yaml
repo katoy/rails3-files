@@ -1,0 +1,10 @@
+ja:
+  activerecord:
+    models:
+      download: "ダウンロード"
+    attributes:
+      download:
+        num:      "No."
+        id:       "id"
+        open_at:  "公開日"
+        name:     "名前"

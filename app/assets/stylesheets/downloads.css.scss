@@ -8,40 +8,53 @@
 	text-align:   center;
 }
 
+.table-striped,.zebra_stripe {
+    thead {
+        background: #ccc;
+    }
+    tbody tr:nth-child(even) td,.zebra_stripe tbody tr.even td {
+        background:#e5ecf9;
+    }
+}
+
 // * * * * * * * * * * * * * * * * * * * *
 //  Paging
 // * * * * * * * * * * * * * * * * * * * *
-1>.paging {
-  padding-bottom: 4px;
-  clear: both;
-  float: left;
-}
-.paging li {
-  display: block;
-  float: left;
-  padding: 4px 15px;
-  border-radius: 50%;
-}
-.paging li a {
-  color: #999;
-  text-decoration: none;
-  display: inline-block;
-  line-height: 14px;
-}
-.paging li.active a {
-  font-weight: bold;
-  color: #eee;
-  font-size: 18px;
-  margin: -1px;
-}
-.paging li a:hover {
-  color: #eee;
-}
 
 .paging-sep {
     overflow: auto;
     width: 100%
 }
+
+.paging {
+  padding-bottom: 10px;
+  clear: both;
+  float: left;
+  li {
+    display: block;
+    float: left;
+    padding: 10px 15px;
+    border-radius: 50%;
+    .page {
+      a {
+        color: #999;
+        display: inline-block;
+        line-height: 14px;
+      }
+      a.active {
+        font-weight: bold;
+        color: #000;
+        font-size: 18px;
+        margin: -1px;
+        text-decoration: none;
+      }
+      a:hover {
+        color: #222;
+      }
+    }
+  }
+}
+
 
 .pagination {
     height: 36px;
@@ -96,11 +109,33 @@
 .pagination-right {
     text-align: right;
 }
+
 .pager {
     list-style: none outside none;
     margin-bottom: 18px;
     margin-left: 0;
     text-align: center;
+
+    li {
+      display: inline;
+    }
+    a:hover {
+        background-color: #F5F5F5;
+        text-decoration: none;
+    }
+
+    .next a {
+        float: right;
+    }
+    .previous a {
+        float: left;
+    }
+    .disabled a, .disabled a:hover {
+        background-color: #FFFFFF;
+        color: #999999;
+          cursor: default;
+}
+
 }
 .pager:before, .pager:after {
     content: "";
@@ -108,33 +143,4 @@
 }
 .pager:after {
     clear: both;
-}
-.pager li {
-    display: inline;
-}
-.pager a {
-    background-color: #FFFFFF;
-    border: 1px solid #DDDDDD;
-    border-radius: 15px 15px 15px 15px;
-    display: inline-block;
-    padding: 5px 14px;
-}
-.pager a:hover {
-    background-color: #F5F5F5;
-    text-decoration: none;
-}
-.pager .next a {
-    float: right;
-}
-.pager .previous a {
-    float: left;
-}
-.pager .disabled a, .pager .disabled a:hover {
-    background-color: #FFFFFF;
-    color: #999999;
-    cursor: default;
-}
-
-.zebra_stripe tbody tr:nth-child(even) td,.zebra_stripe tbody tr.even td {
-    background:#e5ecf9;
 }
