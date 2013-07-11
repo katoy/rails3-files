@@ -1,46 +1,15 @@
 <h1>Listing downloads (paging by server: kaminari)</h1>
 
 <div>
-  <%= link_to "pagenate by Client", downloads_path %> | 
-  <%= "pagenate by Server (Kaminari)" %> | 
-  <%= link_to "pagenate by Server(Wicegrid)", indexWicegrid_downloads_path %>
-  <br/><br/>
-  <hr/>
-</div>
 
-<div class="center">
-  
-  <%= paginate @downloads, :window => 2, :outer_window => 2 %>
-  <div class="page-sep"></div>
-  <table class="zebra_stripe center">
-    <thead>
-      <tr>
-	<th><%= sortable("id", @sort, @direction) -%></th>
-	<th><%= sortable("open_at", @sort, @direction) -%></th>
-	<th><%= sortable("name", @sort, @direction) -%></th>
-	<th></th>
-	<th></th>
-	<th></th>
-	<th></th>
-      </tr>
-    </thead>
-    <tbody class="list">
-      <% @downloads.each do |download, idx| %>
-      <tr>
-	<td><%= download.id %></td>
-	<td><%= I18n.l download.open_at, format: :long %></td>
-	<td><%= download.name %></td>
-	<td><%= link_to "閲覧", "/#{download.path}", target: :"_blank" %>
-	<td><%= link_to "ダウンロード", act1_download_path(download) %></td>
-	<td><%= button_tag "ダウンロード", class: :download,  data: act1_download_path(download) %></td>
-	<td><%= link_to "Edit", edit_download_path(download) %></td>
-	<td><%= link_to "Destroy", download, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-      <% end %>
-    </tbody>
-  </table>
-  <div class="page-sep"></div>
-  <%= paginate @downloads, :window => 2, :outer_window => 2 %>
+  <div id="downloads">
+
+    <%= render :partial => "table" %>
+  </div>
+
+  <%= link_to_next_page @downloads, 'more', remote: true, id: 'more_link' %>
+
   <br />
-  <%= link_to 'New Download', new_download_path %>
+
+  <%= link_to_next_page(@downloads, 'もっと見る', remote: true, id: 'view_more') %>
 </div>

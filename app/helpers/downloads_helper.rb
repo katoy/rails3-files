@@ -25,8 +25,9 @@ module DownloadsHelper
       end
       ans
     end
-    
-    ans = link_to t_attr(attr), sort: attr
+
+    next_dir = (direction == 'asc')? 'asc' : 'desc'
+    ans = link_to t_attr(attr), sort: attr, direction: next_dir
     ans += ' '
     ans += add_icon(attr, at_sort, direction).html_safe
   end

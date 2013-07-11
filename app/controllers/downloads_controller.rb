@@ -17,13 +17,15 @@ class DownloadsController < ApplicationController
   # GET /downloads/indexKaminari.json
   def indexKaminari
 
-    @sort = 'id'
+    @sort = nil
+    @direction = nil
     @sort = params[:sort] if params[:sort]
-    if @sort == session[:sort]
-      @direction = (session[:direction] == 'asc')? 'desc' : 'asc'
-    else
-      @direction = 'asc'
+    @direction = params[:direction] if params[:direction]
+    if @sort
+      @direction = (@direction == 'asc')? 'desc' : 'asc'
     end
+    @sort = 'id'       if @sort == nil
+    @direction = 'asc' if @direction == nil
 
     if params[:search]
       @downloads = Download.where("name like :search", search: params[:search]).order("#{@sort} #{@direction}").page(params[:page]).per(10)
@@ -31,13 +33,10 @@ class DownloadsController < ApplicationController
       @downloads = Download.order("#{@sort} #{@direction}").page(params[:page]).per(10)
     end
 
-    # セッション保存
-    session[:sort] = @sort
-    session[:direction] = @direction
-
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @downloads }
+      format.js
     end
   end
 

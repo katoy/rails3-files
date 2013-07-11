@@ -1,0 +1,31 @@
+<div id="downloadlist">
+
+  <table class="zebra_stripe center">
+    <thead>
+      <tr>
+	<th><%= sortable("id", @sort, @direction) -%></th>
+	<th><%= sortable("open_at", @sort, @direction) -%></th>
+	<th><%= sortable("name", @sort, @direction) -%></th>
+	<th></th>
+	<th></th>
+	<th></th>
+	<th></th>
+      </tr>
+    </thead>
+    <tbody class="list">
+      <% @downloads.each do |download, idx| %>
+      <tr>
+	<td><%= download.id %></td>
+	<td><%= I18n.l download.open_at, format: :long %></td>
+	<td><%= download.name %></td>
+	<td><%= link_to "閲覧", "/#{download.path}", target: :"_blank" %>
+	<td><%= link_to "ダウンロード", act1_download_path(download) %></td>
+	<td><%= button_tag "ダウンロード", class: :download,  data: act1_download_path(download) %></td>
+	<td><%= link_to "Edit", edit_download_path(download) %></td>
+	<td><%= link_to "Destroy", download, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+</div>
