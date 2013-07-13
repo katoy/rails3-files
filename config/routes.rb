@@ -7,8 +7,11 @@ Files::Application.routes.draw do
     end
     collection do
       get :indexKaminari
+      get :indexKaminariTable
       get :indexWicegrid
     end
+
+    get 'page/:@age', :action => :index, :on => :collection
   end
   
 end

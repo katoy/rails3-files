@@ -48,7 +48,10 @@ group :development do
   gem 'pry-rails'
 end
 
+# we need Feb 16, 2013 "fix i18n translate entry_name pluralize for page_entities_info helper" in kaminari
+# gem 'kaminari', :git => 'git://github.com/amatsuda/kaminari.git'
 gem 'kaminari'
+
 gem 'wice_grid'
 gem 'log4r'
 

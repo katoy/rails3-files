@@ -1,12 +1,29 @@
 <h1>Listing downloads (paging by server: kaminari)</h1>
 
 <div>
+  <%= link_to "pagenate by Client", downloads_path %> | 
+  more  by Server(Kaminari) | 
+  <%= link_to "pagenate by Server(Kaminari)", indexKaminariTable_downloads_path %> | 
+  <%= link_to "pagenate by Server(Wicegrid)", indexWicegrid_downloads_path %>
+  <br/><br/>
+  <hr/>
 
-  <div id="downloads">
-
-    <%= render :partial => "table" %>
+  <div class="center" >
+    <!--
+    <div>
+      名前を検索: <input type="text" class="search" id="search-name">
+    </div>
+    -->
+    <table class="zebra_stripe">
+      <%= render :partial => "table_head" %>
+      <tbody id="download-items" class="autopagerize_page_element">
+	<%= render :partial => "table_body" %>
+      </tbody>
+    </table>
+    
+    <div id="view_more">
+      <%= link_to_next_page @downloads, 'もっと見る', remote: true, id: 'more_link', params: { sort: @sort, direction: @direction} %>
+    </div>
+    
   </div>
-
-  <%= link_to_next_page @downloads, 'more', remote: true, id: 'more_link' %>
-
 </div>

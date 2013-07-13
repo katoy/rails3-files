@@ -5,20 +5,21 @@
 
   <div>
     <%= "pagenate by Client" %> | 
-    <%= link_to "pagenate by Server(Kaminari)", indexKaminari_downloads_path %> | 
+    <%= link_to "more  by Server(Kaminari)",    indexKaminari_downloads_path %> | 
+    <%= link_to "pagenate by Server(Kaminari)", indexKaminariTable_downloads_path %> | 
     <%= link_to "pagenate by Server(Wicegrid)", indexWicegrid_downloads_path %>
     <br/><br/>
     <hr/>
   </div>
-
+  
   <div>
     絞込み: <input type="text" class="search">
     　<span id="time"></span>
   </div>
-
+  
   <div class="pagingTop paging"></div>
   <div class="paging-sep"></div>
-
+  
   <table class="zebra_stripe">
     <thead>
       <tr>

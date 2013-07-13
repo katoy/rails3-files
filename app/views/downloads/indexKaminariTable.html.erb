@@ -1,0 +1,34 @@
+<h1>Listing downloads (paging by server: kaminari)</h1>
+
+<div>
+  <%= link_to "pagenate by Client", downloads_path %> | 
+  <%= link_to "more by Server (Kaminari)", indexKaminari_downloads_path %> | 
+  pagenate by Server(Kaminari) | 
+  <%= link_to "pagenate by Server(Wicegrid)", indexWicegrid_downloads_path %>
+  <br/><br/>
+  <hr/>
+</div>
+  
+<div class="center">
+  <!--
+  <div>
+    名前を検索: <input type="text" class="search" id="search-name">
+  </div>
+  -->
+
+  <div id="paginator-top">
+    <%= paginate @downloads, remote: true %>
+  </div>
+  <%= page_entries_info @downloads %>
+  <table class="zebra_stripe center">
+    <%= render :partial => "table_head" %>
+    <tbody id="downloads">
+      <%= render @downloads %>
+    </tbody>
+  </table>
+  
+  <div id="paginator-buttom">
+    <%= paginate @downloads, remote: true %>
+  </div>
+  
+</div>

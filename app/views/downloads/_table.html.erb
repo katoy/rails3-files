@@ -13,7 +13,7 @@
       </tr>
     </thead>
     <tbody class="list">
-      <% @downloads.each do |download, idx| %>
+      <% @downloads.each do |download| %>
       <tr>
 	<td><%= download.id %></td>
 	<td><%= I18n.l download.open_at, format: :long %></td>

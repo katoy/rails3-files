@@ -1,6 +1,3 @@
 
-$("#downloads").append("<%= j(render :partial => 'table') %>");
-
-$("#view_more").replaceWith("<%= escape_javascript(link_to_next_page(@downloads, 'もっと見る', remote: true, id: 'view_more')) %>");
-
-
+$("#download-items").append("<%= j(render :partial => 'table_body') %>");
+$("#view_more").html("<%= j(link_to_next_page(@downloads, 'もっと見る', remote: true, id: 'more_link', params: { sort: @sort, direction: @direction})) %>");

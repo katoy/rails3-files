@@ -1,0 +1,5 @@
+$("#downloads").html("<%= j(render @downloads) %>");
+$("#paginator-top").html(   "<%= j(paginate(@downloads, remote: true, params: { sort: @sort, direction: @direction}).to_s) %>");
+$("#paginator-buttom").html("<%= j(paginate(@downloads, remote: true, params: { sort: @sort, direction: @direction}).to_s) %>");
+
+
