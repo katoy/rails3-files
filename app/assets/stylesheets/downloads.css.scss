@@ -146,3 +146,14 @@
       clear: both;
   }
 }
+
+// for list.js
+a.sort {
+  padding-right: 18px;
+}
+a.sort.desc {
+  background: transparent url(/assets/icons/grid/arrow_down.gif) right no-repeat;
+}
+a.sort.asc {
+  background: transparent url(/assets/icons/grid/arrow_up.gif) right no-repeat;
+}
