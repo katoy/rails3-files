@@ -1,4 +1,7 @@
 
+
+[![Dependency Status](https://gemnasium.com/katoy/rails3-files.png)](https://gemnasium.com/katoy/rails3-files)
+
     $ rake db:drop
 	$ rake db:migrate
 	$ rake db:seed

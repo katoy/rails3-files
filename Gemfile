@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'rails', '3.2.13'
+gem 'rails', '~>3.2.13'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
@@ -52,7 +52,7 @@ end
 # gem 'kaminari', :git => 'git://github.com/amatsuda/kaminari.git'
 gem 'kaminari'
 
-gem 'wice_grid'
+gem 'wice_grid', '3.2.1'
 gem 'log4r'
 
 gem 'rack-mini-profiler'
