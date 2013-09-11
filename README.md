@@ -1,5 +1,5 @@
 
-
+[![Build Status](https://travis-ci.org/katoy/rails3-files.png?branch=master)](https://travis-ci.org/katoy/rails3-files)
 [![Dependency Status](https://gemnasium.com/katoy/rails3-files.png)](https://gemnasium.com/katoy/rails3-files)
 
     $ rake db:drop
