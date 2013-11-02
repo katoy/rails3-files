@@ -1,10 +1,11 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
-
-one:
-  name: file-001.txt
-  path: files/foo/file-001.txt
-  open_at: 2013-11-01 12:13:14
-two:
-  name: file-002.txt
-  path: files/foo/file-002.txt
-  open_at: 2013-11-02 12:13:14
+<% require 'date' %>
+<% require 'time' %>
+<% t = Time.parse(Date.today.to_s) %>
+<% (1..3000).each do |idx| %>
+<%= "file_#{idx}:" %>
+  id: <%= idx %>
+  name: <%= "file-#{sprintf('%03d', idx)}.txt" %>
+  path: <%= "files/foo/#{sprintf('%03d', idx)}.txt" %>
+  open_at: <%= t + idx * (60 * 60 * 12) + idx %>
+<% end%>

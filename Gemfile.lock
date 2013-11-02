@@ -131,7 +131,7 @@ GEM
       json (>= 1.8.0)
     wice_grid (3.2.1)
       kaminari (>= 0.13.0)
-    yard (0.8.7.2)
+    yard (0.8.7.3)
 
 PLATFORMS
   ruby
