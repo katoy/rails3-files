@@ -52,7 +52,7 @@ end
 # gem 'kaminari', :git => 'git://github.com/amatsuda/kaminari.git'
 gem 'kaminari'
 
-gem 'wice_grid', '~>3.2.1'
+gem 'wice_grid', '>=3.2.1'
 gem 'log4r'
 
 gem 'rack-mini-profiler'

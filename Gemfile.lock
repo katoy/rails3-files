@@ -138,7 +138,7 @@ GEM
     uglifier (2.3.0)
       execjs (>= 0.3.0)
       json (>= 1.8.0)
-    wice_grid (3.2.1)
+    wice_grid (3.4.1)
       kaminari (>= 0.13.0)
     yard (0.8.7.3)
 
@@ -164,4 +164,4 @@ DEPENDENCIES
   sqlite3
   thin
   uglifier (>= 1.0.3)
-  wice_grid (~> 3.2.1)
+  wice_grid (>= 3.2.1)

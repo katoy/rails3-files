@@ -3,9 +3,9 @@
 [![Dependency Status](https://gemnasium.com/katoy/rails3-files.png)](https://gemnasium.com/katoy/rails3-files)
 
     $ rake db:drop
-	$ rake db:migrate
-	$ rake db:seed
-	$ rails s
+    $ rake db:migrate
+    $ rake db:seed
+    $ rails s
 
 db:seed で投入されるデータ数は db/seed.rb を編集して調整すること。  
 
@@ -36,3 +36,10 @@ TODO:
 
 参考：
 - https://github.com/amatsuda/kaminari_example
+
+scrennshots
+
+[pict001](./screenshots/pict001.png)  
+[pict002](./screenshots/pict002.png)  
+[pict003](./screenshots/pict003.png)  
+[pict004](./screenshots/pict004.png)  
