@@ -10,7 +10,14 @@
     <br/><br/>
     <hr/>
   </div>
-  
+
+  表示<%= select_tag('page[per]',
+	  options_for_select([
+	  ['10', '10'], ['20', '20'], ['50', '50'], ['100', '100'], ['200', '200'], ['400', '400'], ['1000', '1000']
+	  ]),
+	  {:id => 'per-page'})
+  %>件
+
   <%=
    grid(@downloads_grid, show_filters: :when_filtered) do |g|
      g.column name: t_attr("id"), attribute: "id", filter_type: :range do |download|
