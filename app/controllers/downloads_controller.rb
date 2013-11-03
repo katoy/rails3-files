@@ -1,6 +1,11 @@
+# -*- coding: utf-8 -*-
 class DownloadsController < ApplicationController
 
   include DownloadsHelper
+
+  def get_perPage
+    (cookies[:per_page] || 10).to_i
+  end
 
   # GET /downloads
   # GET /downloads.json
@@ -16,7 +21,6 @@ class DownloadsController < ApplicationController
   # GET /downloads/indexKaminari
   # GET /downloads/indexKaminari.json
   def indexKaminari
-
     @sort = nil
     @direction = nil
     @sort = params[:sort] if params[:sort]
@@ -26,10 +30,10 @@ class DownloadsController < ApplicationController
     @direction = 'asc' if @direction == nil
 
     if params[:search]
-      @downloads = Download.where("name like :search", search: params[:search]).order("#{@sort} #{@direction}").page(params[:page]).per(10)
+      @downloads = Download.where("name like :search", search: params[:search]).order("#{@sort} #{@direction}").page(params[:page]).per(get_perPage)
     else
       puts "--------- sort:[#{@sort}], direction:[#{@direction}] ----"
-      @downloads = Download.order("#{@sort} #{@direction}").page(params[:page]).per(10)
+      @downloads = Download.order("#{@sort} #{@direction}").page(params[:page]).per(get_perPage)
     end
 
     respond_to do |format|
@@ -50,11 +54,10 @@ class DownloadsController < ApplicationController
 
     @sort = 'id'       if @sort == nil
     @direction = 'asc' if @direction == nil
-
     if params[:search]
-      @downloads = Download.where("name like :search", search: params[:search]).order("#{@sort} #{@direction}").page(params[:page]).per(10)
+      @downloads = Download.where("name like :search", search: params[:search]).order("#{@sort} #{@direction}").page(params[:page]).per(get_perPage)
     else
-      @downloads = Download.order("#{@sort} #{@direction}").page(params[:page]).per(10)
+      @downloads = Download.order("#{@sort} #{@direction}").page(params[:page]).per(get_perPage)
     end
 
   end
@@ -62,8 +65,8 @@ class DownloadsController < ApplicationController
   # GET /downloads/indexWiceGrid
   # GET /downloads/indexWiceGrid.json
   def indexWicegrid
-    @downloads_grid = initialize_grid(Download, 
-                                      per_page: 10,
+    @downloads_grid = initialize_grid(Download,
+                                      per_page: get_perPage,
                                       order: "id",
                                       order_direction: :desc
                                       )

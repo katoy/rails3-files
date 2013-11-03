@@ -1,10 +1,12 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
 one:
+  id: 1
   name: file-001.txt
   path: files/foo/file-001.txt
   open_at: 2013-11-01 12:13:14
 two:
+  id: 2
   name: file-002.txt
   path: files/foo/file-002.txt
   open_at: 2013-11-02 12:13:14

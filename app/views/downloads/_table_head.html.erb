@@ -3,9 +3,13 @@
     <th><%= sortable("id", @sort, @direction) -%></th>
     <th><%= sortable("open_at", @sort, @direction) -%></th>
     <th><%= sortable("name", @sort, @direction) -%></th>
-    <th></th>
-    <th></th>
-    <th></th>
-    <th></th>
+    <th colspan='5'> 
+      表示<%= select_tag('page[per]',
+	      options_for_select([
+	      ['10', '10'], ['20', '20'], ['50', '50'], ['100', '100'], ['200', '200'], ['400', '400'], ['1000', '1000']
+	      ]),
+	      {:id => 'per-page'})
+      %>件
+    </th>
   </tr>
 </thead>

@@ -1,5 +1,6 @@
 Files::Application.routes.draw do
-  root :to => "downloads#index"
+  root :to => "downloads#indexKaminariTable"
+
   # resources :downloads
   resources :downloads do
     member do
@@ -11,7 +12,6 @@ Files::Application.routes.draw do
       get :indexWicegrid
     end
 
-    get 'page/:@age', :action => :index, :on => :collection
   end
-  
+
 end

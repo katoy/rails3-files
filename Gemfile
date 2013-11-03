@@ -23,7 +23,7 @@ end
 
 gem 'jquery-rails'
 gem 'jquery-ui-rails'
-
+gem 'jquery-cookie-rails'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
@@ -38,7 +38,7 @@ gem 'jquery-ui-rails'
 # gem 'capistrano'
 
 # To use debugger
-# gem 'debugger'
+gem 'debugger'
 
 group :development do
   gem 'better_errors'
@@ -52,7 +52,7 @@ end
 # gem 'kaminari', :git => 'git://github.com/amatsuda/kaminari.git'
 gem 'kaminari'
 
-gem 'wice_grid', '3.2.1'
+gem 'wice_grid', '~>3.2.1'
 gem 'log4r'
 
 gem 'rack-mini-profiler'

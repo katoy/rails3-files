@@ -26,6 +26,17 @@
 	<th><%= link_to t_attr("idx"), "#", class: :sort, :"data-sort" => :idx -%></th>
 	<th><%= link_to t_attr(:"open_at"), "#", class: :sort, "data-sort" => :"open_at" -%></th>
 	<th><%= link_to t_attr(:name), "#", class: :sort, "data-sort" => :name -%></th>
+	<th colspan="5">
+	  表示<%= select_tag('page[per]',
+		  options_for_select([
+	          ['10', '10'], ['20', '20'], ['50', '50'], ['100', '100'], ['200', '200'], ['400', '400'], ['1000', '1000']
+		  ]),
+		  {:id => 'per-page'})
+	  %>件
+	  <% if @downloads %> 
+	    <%= " / #{@downloads.size()} 件" %>
+	  <% end %>
+	</th>
       </tr>
     </thead>
     <tbody class="list">
