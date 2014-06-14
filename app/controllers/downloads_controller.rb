@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+
 class DownloadsController < ApplicationController
 
   include DownloadsHelper
@@ -68,12 +69,16 @@ class DownloadsController < ApplicationController
     @downloads_grid = initialize_grid(Download,
                                       per_page: get_perPage,
                                       order: "id",
-                                      order_direction: :desc
+                                      order_direction: :desc,
+                                      name: 'grid',
+                                      enable_export_to_csv: true,
+                                      csv_file_name:        'downloads',
                                       )
 
+    return if export_grid_if_requested
     respond_to do |format|
       format.html # index.html.erb
-      format.json { render json: @downloads_grid }
+    #  format.json { render json: @downloads_grid }
     end
   end
 

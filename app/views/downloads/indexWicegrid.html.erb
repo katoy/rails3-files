@@ -11,6 +11,8 @@
     <hr/>
   </div>
 
+  <h2><button class="wg-external-csv-export-button" data-grid-name="grid">CSVエクスポート</button></h2>
+
   表示<%= select_tag('page[per]',
 	  options_for_select([
 	  ['10', '10'], ['20', '20'], ['50', '50'], ['100', '100'], ['200', '200'], ['400', '400'], ['1000', '1000']
@@ -23,7 +25,7 @@
      g.column name: t_attr("id"), attribute: "id", filter_type: :range do |download|
        download.id
      end
-     
+
      g.column name: t_attr("open_at"), attribute: "open_at" do |download|
        I18n.l download.open_at, format: :long
      end
@@ -31,7 +33,7 @@
      g.column name: t_attr("name"), attribute: "name" do |download|
        download.name
      end
-  
+
      g.column do |download|
        link_to "閲覧", "/#{download.path}", target: :"_blank"
      end
