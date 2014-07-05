@@ -38,7 +38,7 @@ gem 'jquery-cookie-rails'
 # gem 'capistrano'
 
 # To use debugger
-gem 'debugger'
+# gem 'debugger'
 
 group :development do
   gem 'better_errors'
@@ -48,7 +48,7 @@ group :development do
   gem 'pry-rails'
   gem 'pry-remote'
   gem 'pry-stack_explorer'
-  gem 'pry-debugger'
+  gem 'pry-byebug'
 end
 
 # we need Feb 16, 2013 "fix i18n translate entry_name pluralize for page_entities_info helper" in kaminari
@@ -61,3 +61,5 @@ gem 'log4r'
 # gem 'rack-mini-profiler'
 
 # gem 'thin'
+
+gem 'rubocop'

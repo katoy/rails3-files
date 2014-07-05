@@ -1,5 +1,5 @@
 Files::Application.routes.draw do
-  root :to => "downloads#indexKaminariTable"
+  root to: 'downloads#indexKaminariTable'
 
   # resources :downloads
   resources :downloads do

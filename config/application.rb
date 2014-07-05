@@ -10,14 +10,13 @@ include Log4r
 
 if defined?(Bundler)
   # If you precompile assets before deploying to production, use this line
-  Bundler.require(*Rails.groups(:assets => %w(development test)))
+  Bundler.require(*Rails.groups(assets: %w(development test)))
   # If you want your assets lazily compiled in production, use this line
   # Bundler.require(:default, :assets, Rails.env)
 end
 
 module Files
   class Application < Rails::Application
-
     # zip して 配信する
     # mini-profiler をつかうときは comment-out する
     # config.middleware.use Rack::Deflater
@@ -26,10 +25,9 @@ module Files
     #   How to configure Log4r with Rails 3.0.x?
     #
     # assign log4r's logger as rails' logger.
-    log4r_config= YAML.load_file(File.join(File.dirname(__FILE__),"log4r.yml"))
-    YamlConfigurator.decode_yaml( log4r_config['log4r_config'] )
+    log4r_config = YAML.load_file(File.join(File.dirname(__FILE__), 'log4r.yml'))
+    YamlConfigurator.decode_yaml(log4r_config['log4r_config'])
     config.logger = Log4r::Logger[Rails.env]
-
 
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
@@ -56,7 +54,7 @@ module Files
     config.i18n.default_locale = :ja
 
     # Configure the default encoding used in templates for Ruby 1.9.
-    config.encoding = "utf-8"
+    config.encoding = 'utf-8'
 
     # Configure sensitive parameters which will be filtered from the log file.
     config.filter_parameters += [:password]

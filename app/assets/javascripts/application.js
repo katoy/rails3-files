@@ -11,15 +11,16 @@
 // GO AFTER THE REQUIRES BELOW.
 //
 //= require jquery
+//= require jquery-ui/datepicker
+//= require jquery-ui/datepicker-ja
 //= require jquery_ujs
 //= require jquery.cookie
-//= require jquery.ui.all
-//= require jquery.ui.datepicker-ja
 //= require list.min.js
-//= require list.paging.min.js
+//= require list.pagination.min.js
 //= require wice_grid
 //= require_tree .
 
 $(document).ready(function(){
-    $( ".datepicker" ).datepicker({dateFormat: 'yy-mm-dd'});
+    $.datepicker.setDefaults( $.datepicker.regional[ "ja" ] );
+    $( ".datepicker" ).datepicker({ dateFormat: 'yy-mm-dd' });
 });

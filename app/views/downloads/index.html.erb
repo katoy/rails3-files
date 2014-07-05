@@ -1,6 +1,5 @@
 <h1>Listing downloads (paging by client: list.js)</h1>
 
-
 <div id="file-list">
 
   <div>
@@ -17,7 +16,7 @@
     　<span id="time"></span>
   </div>
   
-  <div class="pagingTop paging"></div>
+  <div class="paginationTop paging"></div>
   <div class="paging-sep"></div>
   
   <table class="zebra_stripe">
@@ -33,7 +32,7 @@
 		  ]),
 		  {:id => 'per-page'})
 	  %>件
-	  <% if @downloads %> 
+	  <% if @downloads %>
 	    <%= " / #{@downloads.size()} 件" %>
 	  <% end %>
 	</th>
@@ -55,7 +54,7 @@
     </tbody>
   </table>
   <div class="paging-sep"></div>
-  <div class="pagingButtom paging"></div>  
+  <div class="paginationBottom paging"></div>
   <div class="paging-sep"></div>
 </div>
 <br />

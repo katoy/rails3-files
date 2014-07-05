@@ -22,8 +22,8 @@ $ ->
       valueNames: [ 'idx', 'open_at', 'name' ]
       page: $.cookie('per_page')
       plugins: [
-          ['paging', {pagingClass: 'pagingTop', left: 2, right: 2}]
-          ['paging', {pagingClass: 'pagingButtom', left: 2, right: 2}]
+        ListPagination({name: 'paginationTop',    paginationClass: 'paginationTop',    left: 1, right: 1})
+        ListPagination({name: 'paginationBottom', paginationClass: 'paginationBottom', left: 1, right: 1})
       ]
     }
     fileList = new List('file-list', options)
