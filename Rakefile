@@ -20,3 +20,15 @@ end
 
 # rubocop
 RuboCop::RakeTask.new
+
+# selenium test
+desc 'Run test story'
+task :selenium do
+  system 'bundle exec ruby selenium/story-001.rb'
+end
+
+# tidi
+desc 'Check htmls'
+task :tidy do
+  system 'tidy -e -q selenium-httpshots/*.html'
+end

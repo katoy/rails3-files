@@ -12,9 +12,23 @@ db:seed で投入されるデータ数は db/seed.rb を編集して調整する
 procudtion mode で走らせる場合は
 
     $ rake assets:precompile
-    $ RAILS_ENV rake db:migrate
-    $ RAILS_ENV rake db:seed
+    $ RAILS_ENV=prodution rake db:migrate
+    $ RAILS_ENV=production rake db:seed
     $ rails s -e production
+
+selenium webdriver の利用
+=========================
+
+    $ rake db:drop
+    $ rake db:migrate
+    $ rake db:fixturs:load
+    $ rake selenium
+    $ rake tidy
+
+kaminari での ページネション操作を行い、そのスクリーンショットを selenoum-screenshots/*.png に撮る。  
+paage の http 内容を selenoum-httpshots/*.html に撮る。  
+selenoum-httpshots/*.html の内容を tidy を利用して、チェックする。  
+
 
 初期設定からの変更
 ===================

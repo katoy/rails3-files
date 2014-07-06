@@ -43,12 +43,16 @@ gem 'jquery-cookie-rails'
 group :development do
   gem 'better_errors'
   gem 'binding_of_caller'
-  gem 'pry', '~> 0.9.9'
+  gem 'pry', '>= 0.9.9'
   gem 'pry-doc'
   gem 'pry-rails'
   gem 'pry-remote'
   gem 'pry-stack_explorer'
   gem 'pry-byebug'
+end
+
+group :test do
+  gem 'selenium-webdriver'''
 end
 
 # we need Feb 16, 2013 "fix i18n translate entry_name pluralize for page_entities_info helper" in kaminari

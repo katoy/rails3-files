@@ -14,7 +14,7 @@ two:
 <% require 'date' %>
 <% require 'time' %>
 <% t = Time.parse(Date.today.to_s) %>
-<% (3..3000).each do |idx| %>
+<% (3..500).each do |idx| %>
 <%= "file_#{idx}:" %>
   id: <%= idx %>
   name: <%= "file-#{sprintf('%03d', idx)}.txt" %>
