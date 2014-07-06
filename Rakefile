@@ -27,7 +27,7 @@ task :selenium do
   FileUtils.rm_rf 'seleniun-screeshots'
   FileUtils.rm_rf 'seleniun-httpshots'
 
-  system 'bundle exec ruby selenium/story_001.rb'
+  system 'bundle exec ruby selenium/story_all.rb'
 end
 
 # tidi
