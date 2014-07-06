@@ -20,6 +20,11 @@ module Story_002
     wd.get "http://localhost:3000/downloads/indexKaminari"
     shots.action_and_scrennshot wd, name, sub_no += 1
 
+    s = wd.find_element(:xpath, '//div/table/tbody/tr[1]/td[1]').text
+    puts s
+    s = wd.find_element(:xpath, '//div/table/tbody/tr[2]/td[1]').text
+    puts s
+
     wd.find_element(:id, "more_link").click
     shots.action_and_scrennshot wd, name, sub_no += 1
 
