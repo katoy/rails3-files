@@ -19,11 +19,18 @@ procudtion mode で走らせる場合は
 selenium webdriver の利用
 =========================
 
+rails を走らせる。
+
     $ rake db:drop
     $ rake db:migrate
     $ rake db:fixturs:load
+    $ rake s
+
+別の端末で以下を行う。
+
     $ rake selenium
     $ rake tidy
+
 
 kaminari での ページネション操作を行い、そのスクリーンショットを selenoum-screenshots/*.png に撮る。  
 paage の http 内容を selenoum-httpshots/*.html に撮る。  

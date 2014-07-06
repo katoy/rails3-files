@@ -52,7 +52,7 @@ group :development do
 end
 
 group :test do
-  gem 'selenium-webdriver'''
+  gem 'selenium-webdriver'
 end
 
 # we need Feb 16, 2013 "fix i18n translate entry_name pluralize for page_entities_info helper" in kaminari

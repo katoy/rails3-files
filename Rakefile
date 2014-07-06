@@ -24,7 +24,10 @@ RuboCop::RakeTask.new
 # selenium test
 desc 'Run test story'
 task :selenium do
-  system 'bundle exec ruby selenium/story-001.rb'
+  FileUtils.rm_rf 'seleniun-screeshots'
+  FileUtils.rm_rf 'seleniun-httpshots'
+
+  system 'bundle exec ruby selenium/story_001.rb'
 end
 
 # tidi
