@@ -25,7 +25,7 @@ RuboCop::RakeTask.new
 desc 'Auto accessing story'
 task :selenium do
   FileUtils.rm_rf 'seleniun-screeshots'
-  FileUtils.rm_rf 'seleniun-httpshots'
+  FileUtils.rm_rf 'seleniun-htmlshots'
 
   system 'bundle exec ruby selenium/story_all.rb'
 end
@@ -33,5 +33,8 @@ end
 # tidy
 desc 'Check htmls'
 task :tidy do
-  system 'tidy -e -q selenium-httpshots/*.html'
+  Dir.glob('selenium-htmlpshots*/*.html').each do |f|
+    puts "# ------- #{f}"
+    system "tidy -e -q #{f} 2>&1 | fgrep -v 'content occurs after end of body'"
+  end
 end
