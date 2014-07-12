@@ -50,6 +50,7 @@ group :development do
   gem 'pry-stack_explorer'
   gem 'pry-byebug'
   gem 'awesome_print'
+  gem 'tidy'
 end
 
 group :test do
@@ -58,7 +59,6 @@ group :test do
   gem 'launchy'
   gem 'poltergeist'
   gem 'rspec-rails'
-  gem 'tidy'
 end
 
 # we need Feb 16, 2013 "fix i18n translate entry_name pluralize for page_entities_info helper" in kaminari

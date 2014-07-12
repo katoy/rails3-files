@@ -33,8 +33,8 @@ rails を走らせる。
 
 
 kaminari での ページネション操作を行い、そのスクリーンショットを selenoum-screenshots/*.png に撮る。  
-paage の http 内容を selenoum-httpshots/*.html に撮る。  
-selenoum-httpshots/*.html の内容を tidy を利用して、チェックする。  
+paage の http 内容を selenoum-htmlshots/*.html に撮る。  
+selenoum-htmlshots/*.html の内容を tidy を利用して、チェックする。  
 
 
 初期設定からの変更
