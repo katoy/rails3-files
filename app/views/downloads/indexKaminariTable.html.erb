@@ -8,7 +8,7 @@
   <br/><br/>
   <hr/>
 </div>
-  
+
 <div class="center">
   <!--
   <div>
@@ -18,16 +18,16 @@
   <div id="paginator-top">
     <%= paginate @downloads, remote: true %>
   </div>
-  <%= page_entries_info @downloads %>
+  <%= page_entries_info @downloads, remote: true %>
   <table class="zebra_stripe center">
     <%= render :partial => "table_head" %>
     <tbody id="downloads">
       <%= render @downloads %>
     </tbody>
   </table>
-  
+
   <div id="paginator-buttom">
     <%= paginate @downloads, remote: true %>
   </div>
-  
+
 </div>

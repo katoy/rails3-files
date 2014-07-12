@@ -6,19 +6,18 @@
 require 'selenium-webdriver'
 require_relative './shots'
 
-module Story_002
+module Story002
 
   NAME = 'story_002'
 
   # rubocop:disable Style/MethodLength
   def self.story(wd, shots)
 
-    shots = Shots.new
     name = NAME
     sub_no = 0
 
     wd.get "http://localhost:3000/downloads/indexKaminari"
-    shots.action_and_scrennshot wd, name, sub_no += 1
+    shots.action_and_screenshot wd, name, sub_no += 1
 
     s = wd.find_element(:xpath, '//div/table/tbody/tr[1]/td[1]').text
     puts s
@@ -26,13 +25,13 @@ module Story_002
     puts s
 
     wd.find_element(:id, "more_link").click
-    shots.action_and_scrennshot wd, name, sub_no += 1
+    shots.action_and_screenshot wd, name, sub_no += 1
 
     wd.find_element(:css, "div.center").click
-    shots.action_and_scrennshot wd, name, sub_no += 1
+    shots.action_and_screenshot wd, name, sub_no += 1
 
     wd.find_element(:id, "more_link").click
-    shots.action_and_scrennshot wd, name, sub_no += 1
+    shots.action_and_screenshot wd, name, sub_no += 1
   end
 end
 

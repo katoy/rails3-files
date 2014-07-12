@@ -11,8 +11,8 @@ gem 'sqlite3'
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
-  gem 'sass-rails',   '~> 3.2.3'
-  gem 'coffee-rails', '~> 3.2.1'
+  gem 'sass-rails'
+  gem 'coffee-rails'
 
   # See https://github.com/sstephenson/execjs#readme for more supported runtimes
   # gem 'therubyracer', :platforms => :ruby
@@ -49,10 +49,15 @@ group :development do
   gem 'pry-remote'
   gem 'pry-stack_explorer'
   gem 'pry-byebug'
+  gem 'awesome_print'
 end
 
 group :test do
   gem 'selenium-webdriver'
+  gem 'capybara'
+  gem 'launchy'
+  gem 'poltergeist'
+  gem 'rspec-rails'
 end
 
 # we need Feb 16, 2013 "fix i18n translate entry_name pluralize for page_entities_info helper" in kaminari

@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 require File.expand_path('../boot', __FILE__)
 
 require 'rails/all'
@@ -51,6 +52,7 @@ module Files
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
     config.i18n.load_path += Dir[Rails.root.join('config', 'locales', '**', '*.{rb,yml}').to_s]
     # config.i18n.default_locale = :de
+    I18n.enforce_available_locales = true
     config.i18n.default_locale = :ja
 
     # Configure the default encoding used in templates for Ruby 1.9.

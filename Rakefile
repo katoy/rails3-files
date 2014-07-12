@@ -22,7 +22,7 @@ end
 RuboCop::RakeTask.new
 
 # selenium test
-desc 'Run test story'
+desc 'Auto accessing story'
 task :selenium do
   FileUtils.rm_rf 'seleniun-screeshots'
   FileUtils.rm_rf 'seleniun-httpshots'
@@ -30,7 +30,7 @@ task :selenium do
   system 'bundle exec ruby selenium/story_all.rb'
 end
 
-# tidi
+# tidy
 desc 'Check htmls'
 task :tidy do
   system 'tidy -e -q selenium-httpshots/*.html'

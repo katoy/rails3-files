@@ -20,10 +20,10 @@
 	<%= render :partial => "table_body" %>
       </tbody>
     </table>
-    
+
     <div id="view_more">
       <%= link_to_next_page @downloads, 'もっと見る', remote: true, id: 'more_link', params: { sort: @sort, direction: @direction} %>
     </div>
-    
+
   </div>
 </div>

@@ -15,7 +15,7 @@
 //= require jquery-ui/datepicker-ja
 //= require jquery_ujs
 //= require jquery.cookie
-//= require list.min.js
+//= require list.js
 //= require list.pagination.min.js
 //= require wice_grid
 //= require_tree .

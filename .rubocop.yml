@@ -49,7 +49,7 @@ Style/EmptyLinesAroundBody:
 # Offense count: 70
 # Configuration parameters: AllowURI.
 Style/LineLength:
-  Max: 171
+  Max: 200
 
 # Offense count: 4
 # Configuration parameters: CountComments.

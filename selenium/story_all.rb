@@ -5,34 +5,33 @@
 
 require 'selenium-webdriver'
 require_relative './shots'
-require_relative './story_000'
-require_relative './story_001'
-require_relative './story_002'
+require_relative './story000'
+require_relative './story001'
+require_relative './story002'
 
 SCREENSHOTS_DIR = 'selenium-screenshots'
-HTTPSHOTS_DIR = 'selenium-httpshots'
+HTMLSHOTS_DIR = 'selenium-htmlpshots'
 
 DRIVER = Selenium::WebDriver.for :firefox
 
-class Story_all
+class StoryAll
 
-  include Story_000
-  include Story_001
-  include Story_002
+  include Story000
+  include Story001
+  include Story002
 
-  def self.story wd
-    shots = Shots.new
-
-    Story_000.story wd, shots
-    Story_001.story wd, shots
-    Story_002.story wd, shots
+  def self.story(wd, shots)
+    # Story000.story wd, shots
+    Story001.story wd, shots
+    Story002.story wd, shots
   end
 end
 
 # --- mein ----
 driver = DRIVER
+shots = Shots.new(SCREENSHOTS_DIR, HTMLSHOTS_DIR)
 
-Story_all.story driver 
+StoryAll.story driver, shots
 
 driver.close
 driver.quit
