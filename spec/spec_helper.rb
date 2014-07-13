@@ -19,7 +19,7 @@ require 'selenium-webdriver'
 require File.join(File.expand_path(File.dirname(__FILE__)), 'shots')
 
 SCREENSHOTS_DIR = 'selenium-screenshots'.freeze
-HTMLSHOTS_DIR = 'selenium-httpshots'.freeze
+HTMLSHOTS_DIR = 'selenium-htmlshots'.freeze
 
 DRIVER = Selenium::WebDriver.for :firefox
 SHOTS = Shots.new
@@ -34,6 +34,8 @@ RSpec.configure do |config|
   config.before(:suite) do # 全てのspecファイルがロードされたあと、最初のspecが実行される前に一度だけ実行される
     FileUtils.rm_rf SCREENSHOTS_DIR
     FileUtils.rm_rf HTMLSHOTS_DIR
+    Dir.mkdir SCREENSHOTS_DIR
+    Dir.mkdir HTMLSHOTS_DIR
   end
 
   config.after(:suite)  do # 全てのspecファイルがロードされたあと、最初のspecが実行される前に一度だけ実行される

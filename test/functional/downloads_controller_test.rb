@@ -2,7 +2,7 @@ require 'test_helper'
 
 class DownloadsControllerTest < ActionController::TestCase
   setup do
-    @download = downloads(:one)
+    @download = Download.find(1)
   end
 
   test 'should get index' do
