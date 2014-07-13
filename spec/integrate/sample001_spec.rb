@@ -40,6 +40,7 @@ describe 'SAMPLE_001' do
   example 'per_page 10' do
     @wd.get 'http://localhost:3000/downloads/indexKaminariTable'
     # 表示件数 10 にする
+    sleep 2
     unless @wd.find_element(:xpath, '//div[2]/table/thead/tr/th/select//option[1]').selected?
       @wd.find_element(:xpath, '//div[2]/table/thead/tr/th[4]/select//option[1]').click
     end
@@ -150,6 +151,7 @@ describe 'SAMPLE_001' do
   example 'per_page 20' do
     @wd.get 'http://localhost:3000/downloads/indexKaminariTable'
     # 表示件数 20 にする
+    sleep 2
     unless @wd.find_element(:xpath, '//div[2]/table/thead/tr/th/select//option[2]').selected?
       @wd.find_element(:xpath, '//div[2]/table/thead/tr/th[4]/select//option[2]').click
     end
@@ -167,6 +169,7 @@ describe 'SAMPLE_001' do
   example 'per_page 50' do
     @wd.get 'http://localhost:3000/downloads/indexKaminariTable'
     # 表示件数 50 にする
+    sleep 2
     unless @wd.find_element(:xpath, '//div[2]/table/thead/tr/th/select//option[3]').selected?
       @wd.find_element(:xpath, '//div[2]/table/thead/tr/th[4]/select//option[3]').click
     end
@@ -184,6 +187,7 @@ describe 'SAMPLE_001' do
   example 'per_page 100' do
     @wd.get 'http://localhost:3000/downloads/indexKaminariTable'
     # 表示件数 100 にする
+    sleep 2
     unless @wd.find_element(:xpath, '//div[2]/table/thead/tr/th/select//option[4]').selected?
       @wd.find_element(:xpath, '//div[2]/table/thead/tr/th[4]/select//option[4]').click
     end
@@ -200,6 +204,7 @@ describe 'SAMPLE_001' do
   example 'per_page 200' do
     @wd.get 'http://localhost:3000/downloads/indexKaminariTable'
     # 表示件数 200 にする
+    sleep 2
     unless @wd.find_element(:xpath, '//div[2]/table/thead/tr/th/select//option[5]').selected?
       @wd.find_element(:xpath, '//div[2]/table/thead/tr/th[4]/select//option[5]').click
     end
@@ -216,6 +221,7 @@ describe 'SAMPLE_001' do
   example 'per_page 400' do
     @wd.get 'http://localhost:3000/downloads/indexKaminariTable'
     # 表示件数 400 にする
+    sleep 2
     unless @wd.find_element(:xpath, '//div[2]/table/thead/tr/th/select//option[6]').selected?
       @wd.find_element(:xpath, '//div[2]/table/thead/tr/th[4]/select//option[6]').click
     end
@@ -232,6 +238,7 @@ describe 'SAMPLE_001' do
   example 'per_page 1000' do
     @wd.get 'http://localhost:3000/downloads/indexKaminariTable'
     # 表示件数 1000 にする
+    sleep 2
     unless @wd.find_element(:xpath, '//div[2]/table/thead/tr/th/select//option[7]').selected?
       @wd.find_element(:xpath, '//div[2]/table/thead/tr/th[4]/select//option[7]').click
     end
