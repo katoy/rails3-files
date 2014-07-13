@@ -15,7 +15,6 @@
 # users commonly want.
 
 require 'selenium-webdriver'
-require 'selenium-webdriver'
 require File.join(File.expand_path(File.dirname(__FILE__)), 'shots')
 
 SCREENSHOTS_DIR = 'selenium-screenshots'.freeze
