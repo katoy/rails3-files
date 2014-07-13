@@ -1,5 +1,7 @@
 # -*- coding: utf-8 -*-
 
+require 'rails_helper'
+''
 # indexKaminariTable のテスト
 
 describe 'SAMPLE_001' do
