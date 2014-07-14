@@ -28,7 +28,7 @@ rails を走らせる。
 
 別の端末で以下を行う。
 
-    $ rake selenium
+    $ rake spec
     $ rake tidy
 
 
@@ -40,8 +40,8 @@ selenoum-htmlshots/*.html の内容を tidy を利用して、チェックする
 初期設定からの変更
 ===================
 
-* 送信するコンテンツを gzip している。 
-* log4r をつかっている。  
+* 送信するコンテンツを gzip している。
+* log4r をつかっている。
 * テーブルのページング例を４つ。
 - クライアントサイドでの paging/sort/foltering
 - サーバーサイドでの paging/sort (more using kaminari, remote:true)
@@ -52,7 +52,8 @@ selenoum-htmlshots/*.html の内容を tidy を利用して、チェックする
 
 TODO:
 * テストを書くこと。
- 
+
+
 ライセンス： MIT
 
 参考：
