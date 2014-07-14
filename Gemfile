@@ -51,6 +51,7 @@ group :development, :test do
   gem 'pry-byebug'
   gem 'awesome_print'
 
+  gem 'phantomjs'
   gem 'selenium-webdriver'
   gem 'capybara'
   gem 'launchy'
