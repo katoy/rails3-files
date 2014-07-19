@@ -21,6 +21,13 @@ end
 # rubocop
 RuboCop::RakeTask.new
 
+# tidy
+desc 'Check coffee (using coffeelint)'
+task :coffeelint do
+  # npm install coffeelint -g
+  system 'coffeelint .'
+end
+
 # selenium test
 desc 'Auto accessing story'
 task :selenium do
@@ -31,7 +38,7 @@ task :selenium do
 end
 
 # tidy
-desc 'Check htmls'
+desc 'Check htmls (using tidy)'
 task :tidy do
   Dir.glob('selenium-htmlpshots*/*.html').each do |f|
     puts "# ------- #{f}"

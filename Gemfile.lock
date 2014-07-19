@@ -180,7 +180,7 @@ GEM
       multi_json (~> 1.0)
       rubyzip (~> 1.0)
       websocket (~> 1.0.4)
-    slop (3.5.0)
+    slop (3.6.0)
     sprockets (2.2.2)
       hike (~> 1.2)
       multi_json (~> 1.0)
@@ -193,7 +193,7 @@ GEM
       polyglot
       polyglot (>= 0.3.1)
     tzinfo (0.3.40)
-    uglifier (2.5.1)
+    uglifier (2.5.3)
       execjs (>= 0.3.0)
       json (>= 1.8.0)
     websocket (1.0.7)
