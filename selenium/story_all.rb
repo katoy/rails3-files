@@ -4,6 +4,8 @@
 #    http://sebuilder.github.io/se-builder/
 
 require 'selenium-webdriver'
+require 'awesome_print'
+
 require_relative './shots'
 require_relative './story000'
 require_relative './story001'

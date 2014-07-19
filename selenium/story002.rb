@@ -19,6 +19,9 @@ module Story002
     wd.get "http://localhost:3000/downloads/indexKaminari"
     shots.action_and_screenshot wd, name, sub_no += 1
 
+    # wd.manage.add_cookie :name => "foo",:value => 123,:path => "/"
+    # wd.manage.all_cookies.each do |x| ap x end
+
     s = wd.find_element(:xpath, '//div/table/tbody/tr[1]/td[1]').text
     puts s
     s = wd.find_element(:xpath, '//div/table/tbody/tr[2]/td[1]').text

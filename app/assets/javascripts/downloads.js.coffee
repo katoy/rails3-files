@@ -3,21 +3,9 @@
 # You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/
 
 $ ->
-  $('#per-page').val($.cookie('per_page'))
+  fileList = null
 
-  $('#per-page').change ->
-    per_page = $("#per-page option:selected").text()
-    $.cookie('per_page', per_page, {expires: 30, path: '/'})
-    location.reload()
-    @
-
-  $(".download").click ->
-    href = $(this).attr("data")
-    # alert("file:" + href)
-    window.location = href
-    @
-
-  if $('#file-list').length > 0
+  my_show_paging = ->
     options = {
       valueNames: [ 'idx', 'open_at', 'name' ]
       page: $.cookie('per_page')
@@ -26,13 +14,33 @@ $ ->
         ListPagination({name: 'paginationBottom', paginationClass: 'paginationBottom', left: 1, right: 1})
       ]
     }
-    fileList = new List('file-list', options)
-    st = null
-    et = null
+    listObject = new List('file-list', options)
 
-    $('#search').keyup ->
-      st = (new Date()).getTime()
-      fileList.search($(@).val())
-      et = (new Date()).getTime()
-      $("#time").text "#{et - st} ミリ秒"
+  my_search = (pat) ->
+    st = (new Date()).getTime()
+    fileList.search(pat)
+    et = (new Date()).getTime()
+    $("#time").text "#{et - st} ミリ秒"
 
+  update_paging = ->
+    i.show() for i in fileList.items
+    my_show_paging()
+    $('.search').val('')
+
+  $('#per-page').val($.cookie('per_page'))
+
+  $('#per-page').change ->
+    per_page = $("#per-page option:selected").text()
+    $.cookie('per_page', per_page, {expires: 30, path: '/'})
+    update_paging()
+    @
+
+  $(".download").click ->
+    href = $(this).attr("data")
+    # alert("file:" + href)
+    window.location = href
+    @
+
+  $('.search').keyup -> my_search(($(@).val()))
+
+  fileList = my_show_paging()
