@@ -102,6 +102,7 @@ GEM
       websocket-driver (>= 0.2.0)
     polyglot (0.3.5)
     powerpack (0.0.9)
+    progressbar (0.21.0)
     pry (0.10.0)
       coderay (~> 1.1.0)
       method_source (~> 0.8.1)
@@ -146,6 +147,7 @@ GEM
     rake (10.3.2)
     rdoc (3.12.2)
       json (~> 1.4)
+    rmagick (2.13.2)
     rspec-core (3.0.2)
       rspec-support (~> 3.0.0)
     rspec-expectations (3.0.2)
@@ -221,6 +223,7 @@ DEPENDENCIES
   log4r
   phantomjs
   poltergeist
+  progressbar
   pry (>= 0.9.9)
   pry-byebug
   pry-doc
@@ -228,6 +231,7 @@ DEPENDENCIES
   pry-remote
   pry-stack_explorer
   rails (~> 3.2.13)
+  rmagick
   rspec-rails (~> 3.0.0)
   rubocop
   sass-rails

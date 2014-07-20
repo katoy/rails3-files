@@ -1,0 +1,668 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+  <title>Files</title>
+  <link type="text/css" rel="stylesheet" media="all" href="/assets/application.css?body=1" />
+<link type="text/css" rel="stylesheet" media="all" href="/assets/jquery-ui/theme.css?body=1" />
+<link type="text/css" rel="stylesheet" media="all" href="/assets/jquery-ui/core.css?body=1" />
+<link type="text/css" rel="stylesheet" media="all" href="/assets/jquery-ui/accordion.css?body=1" />
+<link type="text/css" rel="stylesheet" media="all" href="/assets/jquery-ui/menu.css?body=1" />
+<link type="text/css" rel="stylesheet" media="all" href="/assets/jquery-ui/autocomplete.css?body=1" />
+<link type="text/css" rel="stylesheet" media="all" href="/assets/jquery-ui/button.css?body=1" />
+<link type="text/css" rel="stylesheet" media="all" href="/assets/jquery-ui/datepicker.css?body=1" />
+<link type="text/css" rel="stylesheet" media="all" href="/assets/jquery-ui/draggable.css?body=1" />
+<link type="text/css" rel="stylesheet" media="all" href="/assets/jquery-ui/resizable.css?body=1" />
+<link type="text/css" rel="stylesheet" media="all" href="/assets/jquery-ui/dialog.css?body=1" />
+<link type="text/css" rel="stylesheet" media="all" href="/assets/jquery-ui/progressbar.css?body=1" />
+<link type="text/css" rel="stylesheet" media="all" href="/assets/jquery-ui/selectable.css?body=1" />
+<link type="text/css" rel="stylesheet" media="all" href="/assets/jquery-ui/selectmenu.css?body=1" />
+<link type="text/css" rel="stylesheet" media="all" href="/assets/jquery-ui/sortable.css?body=1" />
+<link type="text/css" rel="stylesheet" media="all" href="/assets/jquery-ui/slider.css?body=1" />
+<link type="text/css" rel="stylesheet" media="all" href="/assets/jquery-ui/spinner.css?body=1" />
+<link type="text/css" rel="stylesheet" media="all" href="/assets/jquery-ui/tabs.css?body=1" />
+<link type="text/css" rel="stylesheet" media="all" href="/assets/jquery-ui/tooltip.css?body=1" />
+<link type="text/css" rel="stylesheet" media="all" href="/assets/jquery-ui/base.css?body=1" />
+<link type="text/css" rel="stylesheet" media="all" href="/assets/jquery-ui/all.css?body=1" />
+<link type="text/css" rel="stylesheet" media="all" href="/assets/jquery-ui.css?body=1" />
+<link type="text/css" rel="stylesheet" media="all" href="/assets/downloads.css?body=1" />
+<link type="text/css" rel="stylesheet" media="all" href="/assets/wice_grid.css?body=1" />
+  <script type="text/javascript" src="/assets/jquery.js?body=1"></script>
+<script type="text/javascript" src="/assets/jquery-ui/core.js?body=1"></script>
+<script type="text/javascript" src="/assets/jquery-ui/datepicker.js?body=1"></script>
+<script type="text/javascript" src="/assets/jquery-ui/datepicker-ja.js?body=1"></script>
+<script type="text/javascript" src="/assets/jquery_ujs.js?body=1"></script>
+<script type="text/javascript" src="/assets/jquery.cookie.js?body=1"></script>
+<script type="text/javascript" src="/assets/list.js?body=1"></script>
+<script type="text/javascript" src="/assets/list.pagination.min.js?body=1"></script>
+<script type="text/javascript" src="/assets/wice_grid_processor.js?body=1"></script>
+<script type="text/javascript" src="/assets/wice_grid_init.js?body=1"></script>
+<script type="text/javascript" src="/assets/wice_grid_saved_queries_init.js?body=1"></script>
+<script type="text/javascript" src="/assets/wice_grid.js?body=1"></script>
+<script type="text/javascript" src="/assets/downloads.js?body=1"></script>
+<script type="text/javascript" src="/assets/application.js?body=1"></script>
+  <meta name="csrf-param" content="authenticity_token" />
+<meta name="csrf-token" content="z+golWgOgyU3V9CstbqCioQMvnMD7Thnj6zRYcX8Ojs=" />
+</head>
+<body>
+
+<h1>Listing downloads (paging by server: kaminari)</h1>
+
+<div>
+  <a href="/downloads">pagenate by Client</a> | 
+  <a href="/downloads/indexKaminari">more by Server (Kaminari)</a> | 
+  pagenate by Server(Kaminari) | 
+  <a href="/downloads/indexWicegrid">pagenate by Server(Wicegrid)</a>
+  <br /><br />
+  <hr />
+</div>
+
+<div class="center">
+  <!--
+  <div>
+    名前を検索: <input type="text" class="search" id="search-name">
+  </div>
+  -->
+  <div id="paginator-top">
+      <nav class="pagination">
+    
+    
+        <span class="page current">
+  1
+</span>
+
+        <span class="page">
+  <a rel="next" data-remote="true" href="/?page=2">2</a>
+</span>
+
+        <span class="page">
+  <a data-remote="true" href="/?page=3">3</a>
+</span>
+
+        <span class="page">
+  <a data-remote="true" href="/?page=4">4</a>
+</span>
+
+        <span class="page">
+  <a data-remote="true" href="/?page=5">5</a>
+</span>
+
+        <span class="page gap">...</span>
+
+    <span class="next">
+  <a rel="next" data-remote="true" href="/?page=2">次ページ »</a>
+</span>
+
+    <span class="last">
+  <a data-remote="true" href="/?page=20">最後のページ</a>
+</span>
+
+  </nav>
+
+  </div>
+  ダウンロードs の <b>1 - 50</b> 件を表示中 / <b>1000</b> 件
+  <table class="zebra_stripe center">
+    <thead>
+  <tr>
+    <th><a href="/?direction=desc&amp;sort=id">id</a> ^</th>
+    <th><a href="/?direction=desc&amp;sort=open_at">公開日</a> </th>
+    <th><a href="/?direction=desc&amp;sort=name">名前</a> </th>
+    <th colspan="5"> 
+      表示<select name="page[per]" id="per-page"><option value="10">10</option>
+<option value="20">20</option>
+<option value="50">50</option>
+<option value="100">100</option>
+<option value="200">200</option>
+<option value="400">400</option>
+<option value="1000">1000</option></select>件
+    </th>
+  </tr>
+</thead>
+
+    <tbody id="downloads">
+      <tr>
+  <td>1</td>
+  <td>2009年12月30日(水) 03時00分01秒 +0000</td>
+  <td>file-0001.txt</td>
+  <td><a target="_blank" href="/files/foo/f_0001.txt">閲覧</a>
+  </td><td><a href="/downloads/1/act1">ダウンロード</a></td>
+  <td><button type="submit" name="button" data="/downloads/1/act1" class="download">ダウンロード</button></td>
+  <td><a href="/downloads/1/edit">Edit</a></td>
+  <td><a rel="nofollow" data-method="delete" data-confirm="Are you sure?" href="/downloads/1">Destroy</a></td>
+</tr>
+<tr>
+  <td>2</td>
+  <td>2009年12月29日(火) 15時00分02秒 +0000</td>
+  <td>file-0002.txt</td>
+  <td><a target="_blank" href="/files/foo/f_0002.txt">閲覧</a>
+  </td><td><a href="/downloads/2/act1">ダウンロード</a></td>
+  <td><button type="submit" name="button" data="/downloads/2/act1" class="download">ダウンロード</button></td>
+  <td><a href="/downloads/2/edit">Edit</a></td>
+  <td><a rel="nofollow" data-method="delete" data-confirm="Are you sure?" href="/downloads/2">Destroy</a></td>
+</tr>
+<tr>
+  <td>3</td>
+  <td>2009年12月29日(火) 03時00分03秒 +0000</td>
+  <td>file-0003.txt</td>
+  <td><a target="_blank" href="/files/foo/f_0003.txt">閲覧</a>
+  </td><td><a href="/downloads/3/act1">ダウンロード</a></td>
+  <td><button type="submit" name="button" data="/downloads/3/act1" class="download">ダウンロード</button></td>
+  <td><a href="/downloads/3/edit">Edit</a></td>
+  <td><a rel="nofollow" data-method="delete" data-confirm="Are you sure?" href="/downloads/3">Destroy</a></td>
+</tr>
+<tr>
+  <td>4</td>
+  <td>2009年12月28日(月) 15時00分04秒 +0000</td>
+  <td>file-0004.txt</td>
+  <td><a target="_blank" href="/files/foo/f_0004.txt">閲覧</a>
+  </td><td><a href="/downloads/4/act1">ダウンロード</a></td>
+  <td><button type="submit" name="button" data="/downloads/4/act1" class="download">ダウンロード</button></td>
+  <td><a href="/downloads/4/edit">Edit</a></td>
+  <td><a rel="nofollow" data-method="delete" data-confirm="Are you sure?" href="/downloads/4">Destroy</a></td>
+</tr>
+<tr>
+  <td>5</td>
+  <td>2009年12月28日(月) 03時00分05秒 +0000</td>
+  <td>file-0005.txt</td>
+  <td><a target="_blank" href="/files/foo/f_0005.txt">閲覧</a>
+  </td><td><a href="/downloads/5/act1">ダウンロード</a></td>
+  <td><button type="submit" name="button" data="/downloads/5/act1" class="download">ダウンロード</button></td>
+  <td><a href="/downloads/5/edit">Edit</a></td>
+  <td><a rel="nofollow" data-method="delete" data-confirm="Are you sure?" href="/downloads/5">Destroy</a></td>
+</tr>
+<tr>
+  <td>6</td>
+  <td>2009年12月27日(日) 15時00分06秒 +0000</td>
+  <td>file-0006.txt</td>
+  <td><a target="_blank" href="/files/foo/f_0006.txt">閲覧</a>
+  </td><td><a href="/downloads/6/act1">ダウンロード</a></td>
+  <td><button type="submit" name="button" data="/downloads/6/act1" class="download">ダウンロード</button></td>
+  <td><a href="/downloads/6/edit">Edit</a></td>
+  <td><a rel="nofollow" data-method="delete" data-confirm="Are you sure?" href="/downloads/6">Destroy</a></td>
+</tr>
+<tr>
+  <td>7</td>
+  <td>2009年12月27日(日) 03時00分07秒 +0000</td>
+  <td>file-0007.txt</td>
+  <td><a target="_blank" href="/files/foo/f_0007.txt">閲覧</a>
+  </td><td><a href="/downloads/7/act1">ダウンロード</a></td>
+  <td><button type="submit" name="button" data="/downloads/7/act1" class="download">ダウンロード</button></td>
+  <td><a href="/downloads/7/edit">Edit</a></td>
+  <td><a rel="nofollow" data-method="delete" data-confirm="Are you sure?" href="/downloads/7">Destroy</a></td>
+</tr>
+<tr>
+  <td>8</td>
+  <td>2009年12月26日(土) 15時00分08秒 +0000</td>
+  <td>file-0008.txt</td>
+  <td><a target="_blank" href="/files/foo/f_0008.txt">閲覧</a>
+  </td><td><a href="/downloads/8/act1">ダウンロード</a></td>
+  <td><button type="submit" name="button" data="/downloads/8/act1" class="download">ダウンロード</button></td>
+  <td><a href="/downloads/8/edit">Edit</a></td>
+  <td><a rel="nofollow" data-method="delete" data-confirm="Are you sure?" href="/downloads/8">Destroy</a></td>
+</tr>
+<tr>
+  <td>9</td>
+  <td>2009年12月26日(土) 03時00分09秒 +0000</td>
+  <td>file-0009.txt</td>
+  <td><a target="_blank" href="/files/foo/f_0009.txt">閲覧</a>
+  </td><td><a href="/downloads/9/act1">ダウンロード</a></td>
+  <td><button type="submit" name="button" data="/downloads/9/act1" class="download">ダウンロード</button></td>
+  <td><a href="/downloads/9/edit">Edit</a></td>
+  <td><a rel="nofollow" data-method="delete" data-confirm="Are you sure?" href="/downloads/9">Destroy</a></td>
+</tr>
+<tr>
+  <td>10</td>
+  <td>2009年12月25日(金) 15時00分10秒 +0000</td>
+  <td>file-0010.txt</td>
+  <td><a target="_blank" href="/files/foo/f_0010.txt">閲覧</a>
+  </td><td><a href="/downloads/10/act1">ダウンロード</a></td>
+  <td><button type="submit" name="button" data="/downloads/10/act1" class="download">ダウンロード</button></td>
+  <td><a href="/downloads/10/edit">Edit</a></td>
+  <td><a rel="nofollow" data-method="delete" data-confirm="Are you sure?" href="/downloads/10">Destroy</a></td>
+</tr>
+<tr>
+  <td>11</td>
+  <td>2009年12月25日(金) 03時00分11秒 +0000</td>
+  <td>file-0011.txt</td>
+  <td><a target="_blank" href="/files/foo/f_0011.txt">閲覧</a>
+  </td><td><a href="/downloads/11/act1">ダウンロード</a></td>
+  <td><button type="submit" name="button" data="/downloads/11/act1" class="download">ダウンロード</button></td>
+  <td><a href="/downloads/11/edit">Edit</a></td>
+  <td><a rel="nofollow" data-method="delete" data-confirm="Are you sure?" href="/downloads/11">Destroy</a></td>
+</tr>
+<tr>
+  <td>12</td>
+  <td>2009年12月24日(木) 15時00分12秒 +0000</td>
+  <td>file-0012.txt</td>
+  <td><a target="_blank" href="/files/foo/f_0012.txt">閲覧</a>
+  </td><td><a href="/downloads/12/act1">ダウンロード</a></td>
+  <td><button type="submit" name="button" data="/downloads/12/act1" class="download">ダウンロード</button></td>
+  <td><a href="/downloads/12/edit">Edit</a></td>
+  <td><a rel="nofollow" data-method="delete" data-confirm="Are you sure?" href="/downloads/12">Destroy</a></td>
+</tr>
+<tr>
+  <td>13</td>
+  <td>2009年12月24日(木) 03時00分13秒 +0000</td>
+  <td>file-0013.txt</td>
+  <td><a target="_blank" href="/files/foo/f_0013.txt">閲覧</a>
+  </td><td><a href="/downloads/13/act1">ダウンロード</a></td>
+  <td><button type="submit" name="button" data="/downloads/13/act1" class="download">ダウンロード</button></td>
+  <td><a href="/downloads/13/edit">Edit</a></td>
+  <td><a rel="nofollow" data-method="delete" data-confirm="Are you sure?" href="/downloads/13">Destroy</a></td>
+</tr>
+<tr>
+  <td>14</td>
+  <td>2009年12月23日(水) 15時00分14秒 +0000</td>
+  <td>file-0014.txt</td>
+  <td><a target="_blank" href="/files/foo/f_0014.txt">閲覧</a>
+  </td><td><a href="/downloads/14/act1">ダウンロード</a></td>
+  <td><button type="submit" name="button" data="/downloads/14/act1" class="download">ダウンロード</button></td>
+  <td><a href="/downloads/14/edit">Edit</a></td>
+  <td><a rel="nofollow" data-method="delete" data-confirm="Are you sure?" href="/downloads/14">Destroy</a></td>
+</tr>
+<tr>
+  <td>15</td>
+  <td>2009年12月23日(水) 03時00分15秒 +0000</td>
+  <td>file-0015.txt</td>
+  <td><a target="_blank" href="/files/foo/f_0015.txt">閲覧</a>
+  </td><td><a href="/downloads/15/act1">ダウンロード</a></td>
+  <td><button type="submit" name="button" data="/downloads/15/act1" class="download">ダウンロード</button></td>
+  <td><a href="/downloads/15/edit">Edit</a></td>
+  <td><a rel="nofollow" data-method="delete" data-confirm="Are you sure?" href="/downloads/15">Destroy</a></td>
+</tr>
+<tr>
+  <td>16</td>
+  <td>2009年12月22日(火) 15時00分16秒 +0000</td>
+  <td>file-0016.txt</td>
+  <td><a target="_blank" href="/files/foo/f_0016.txt">閲覧</a>
+  </td><td><a href="/downloads/16/act1">ダウンロード</a></td>
+  <td><button type="submit" name="button" data="/downloads/16/act1" class="download">ダウンロード</button></td>
+  <td><a href="/downloads/16/edit">Edit</a></td>
+  <td><a rel="nofollow" data-method="delete" data-confirm="Are you sure?" href="/downloads/16">Destroy</a></td>
+</tr>
+<tr>
+  <td>17</td>
+  <td>2009年12月22日(火) 03時00分17秒 +0000</td>
+  <td>file-0017.txt</td>
+  <td><a target="_blank" href="/files/foo/f_0017.txt">閲覧</a>
+  </td><td><a href="/downloads/17/act1">ダウンロード</a></td>
+  <td><button type="submit" name="button" data="/downloads/17/act1" class="download">ダウンロード</button></td>
+  <td><a href="/downloads/17/edit">Edit</a></td>
+  <td><a rel="nofollow" data-method="delete" data-confirm="Are you sure?" href="/downloads/17">Destroy</a></td>
+</tr>
+<tr>
+  <td>18</td>
+  <td>2009年12月21日(月) 15時00分18秒 +0000</td>
+  <td>file-0018.txt</td>
+  <td><a target="_blank" href="/files/foo/f_0018.txt">閲覧</a>
+  </td><td><a href="/downloads/18/act1">ダウンロード</a></td>
+  <td><button type="submit" name="button" data="/downloads/18/act1" class="download">ダウンロード</button></td>
+  <td><a href="/downloads/18/edit">Edit</a></td>
+  <td><a rel="nofollow" data-method="delete" data-confirm="Are you sure?" href="/downloads/18">Destroy</a></td>
+</tr>
+<tr>
+  <td>19</td>
+  <td>2009年12月21日(月) 03時00分19秒 +0000</td>
+  <td>file-0019.txt</td>
+  <td><a target="_blank" href="/files/foo/f_0019.txt">閲覧</a>
+  </td><td><a href="/downloads/19/act1">ダウンロード</a></td>
+  <td><button type="submit" name="button" data="/downloads/19/act1" class="download">ダウンロード</button></td>
+  <td><a href="/downloads/19/edit">Edit</a></td>
+  <td><a rel="nofollow" data-method="delete" data-confirm="Are you sure?" href="/downloads/19">Destroy</a></td>
+</tr>
+<tr>
+  <td>20</td>
+  <td>2009年12月20日(日) 15時00分20秒 +0000</td>
+  <td>file-0020.txt</td>
+  <td><a target="_blank" href="/files/foo/f_0020.txt">閲覧</a>
+  </td><td><a href="/downloads/20/act1">ダウンロード</a></td>
+  <td><button type="submit" name="button" data="/downloads/20/act1" class="download">ダウンロード</button></td>
+  <td><a href="/downloads/20/edit">Edit</a></td>
+  <td><a rel="nofollow" data-method="delete" data-confirm="Are you sure?" href="/downloads/20">Destroy</a></td>
+</tr>
+<tr>
+  <td>21</td>
+  <td>2009年12月20日(日) 03時00分21秒 +0000</td>
+  <td>file-0021.txt</td>
+  <td><a target="_blank" href="/files/foo/f_0021.txt">閲覧</a>
+  </td><td><a href="/downloads/21/act1">ダウンロード</a></td>
+  <td><button type="submit" name="button" data="/downloads/21/act1" class="download">ダウンロード</button></td>
+  <td><a href="/downloads/21/edit">Edit</a></td>
+  <td><a rel="nofollow" data-method="delete" data-confirm="Are you sure?" href="/downloads/21">Destroy</a></td>
+</tr>
+<tr>
+  <td>22</td>
+  <td>2009年12月19日(土) 15時00分22秒 +0000</td>
+  <td>file-0022.txt</td>
+  <td><a target="_blank" href="/files/foo/f_0022.txt">閲覧</a>
+  </td><td><a href="/downloads/22/act1">ダウンロード</a></td>
+  <td><button type="submit" name="button" data="/downloads/22/act1" class="download">ダウンロード</button></td>
+  <td><a href="/downloads/22/edit">Edit</a></td>
+  <td><a rel="nofollow" data-method="delete" data-confirm="Are you sure?" href="/downloads/22">Destroy</a></td>
+</tr>
+<tr>
+  <td>23</td>
+  <td>2009年12月19日(土) 03時00分23秒 +0000</td>
+  <td>file-0023.txt</td>
+  <td><a target="_blank" href="/files/foo/f_0023.txt">閲覧</a>
+  </td><td><a href="/downloads/23/act1">ダウンロード</a></td>
+  <td><button type="submit" name="button" data="/downloads/23/act1" class="download">ダウンロード</button></td>
+  <td><a href="/downloads/23/edit">Edit</a></td>
+  <td><a rel="nofollow" data-method="delete" data-confirm="Are you sure?" href="/downloads/23">Destroy</a></td>
+</tr>
+<tr>
+  <td>24</td>
+  <td>2009年12月18日(金) 15時00分24秒 +0000</td>
+  <td>file-0024.txt</td>
+  <td><a target="_blank" href="/files/foo/f_0024.txt">閲覧</a>
+  </td><td><a href="/downloads/24/act1">ダウンロード</a></td>
+  <td><button type="submit" name="button" data="/downloads/24/act1" class="download">ダウンロード</button></td>
+  <td><a href="/downloads/24/edit">Edit</a></td>
+  <td><a rel="nofollow" data-method="delete" data-confirm="Are you sure?" href="/downloads/24">Destroy</a></td>
+</tr>
+<tr>
+  <td>25</td>
+  <td>2009年12月18日(金) 03時00分25秒 +0000</td>
+  <td>file-0025.txt</td>
+  <td><a target="_blank" href="/files/foo/f_0025.txt">閲覧</a>
+  </td><td><a href="/downloads/25/act1">ダウンロード</a></td>
+  <td><button type="submit" name="button" data="/downloads/25/act1" class="download">ダウンロード</button></td>
+  <td><a href="/downloads/25/edit">Edit</a></td>
+  <td><a rel="nofollow" data-method="delete" data-confirm="Are you sure?" href="/downloads/25">Destroy</a></td>
+</tr>
+<tr>
+  <td>26</td>
+  <td>2009年12月17日(木) 15時00分26秒 +0000</td>
+  <td>file-0026.txt</td>
+  <td><a target="_blank" href="/files/foo/f_0026.txt">閲覧</a>
+  </td><td><a href="/downloads/26/act1">ダウンロード</a></td>
+  <td><button type="submit" name="button" data="/downloads/26/act1" class="download">ダウンロード</button></td>
+  <td><a href="/downloads/26/edit">Edit</a></td>
+  <td><a rel="nofollow" data-method="delete" data-confirm="Are you sure?" href="/downloads/26">Destroy</a></td>
+</tr>
+<tr>
+  <td>27</td>
+  <td>2009年12月17日(木) 03時00分27秒 +0000</td>
+  <td>file-0027.txt</td>
+  <td><a target="_blank" href="/files/foo/f_0027.txt">閲覧</a>
+  </td><td><a href="/downloads/27/act1">ダウンロード</a></td>
+  <td><button type="submit" name="button" data="/downloads/27/act1" class="download">ダウンロード</button></td>
+  <td><a href="/downloads/27/edit">Edit</a></td>
+  <td><a rel="nofollow" data-method="delete" data-confirm="Are you sure?" href="/downloads/27">Destroy</a></td>
+</tr>
+<tr>
+  <td>28</td>
+  <td>2009年12月16日(水) 15時00分28秒 +0000</td>
+  <td>file-0028.txt</td>
+  <td><a target="_blank" href="/files/foo/f_0028.txt">閲覧</a>
+  </td><td><a href="/downloads/28/act1">ダウンロード</a></td>
+  <td><button type="submit" name="button" data="/downloads/28/act1" class="download">ダウンロード</button></td>
+  <td><a href="/downloads/28/edit">Edit</a></td>
+  <td><a rel="nofollow" data-method="delete" data-confirm="Are you sure?" href="/downloads/28">Destroy</a></td>
+</tr>
+<tr>
+  <td>29</td>
+  <td>2009年12月16日(水) 03時00分29秒 +0000</td>
+  <td>file-0029.txt</td>
+  <td><a target="_blank" href="/files/foo/f_0029.txt">閲覧</a>
+  </td><td><a href="/downloads/29/act1">ダウンロード</a></td>
+  <td><button type="submit" name="button" data="/downloads/29/act1" class="download">ダウンロード</button></td>
+  <td><a href="/downloads/29/edit">Edit</a></td>
+  <td><a rel="nofollow" data-method="delete" data-confirm="Are you sure?" href="/downloads/29">Destroy</a></td>
+</tr>
+<tr>
+  <td>30</td>
+  <td>2009年12月15日(火) 15時00分30秒 +0000</td>
+  <td>file-0030.txt</td>
+  <td><a target="_blank" href="/files/foo/f_0030.txt">閲覧</a>
+  </td><td><a href="/downloads/30/act1">ダウンロード</a></td>
+  <td><button type="submit" name="button" data="/downloads/30/act1" class="download">ダウンロード</button></td>
+  <td><a href="/downloads/30/edit">Edit</a></td>
+  <td><a rel="nofollow" data-method="delete" data-confirm="Are you sure?" href="/downloads/30">Destroy</a></td>
+</tr>
+<tr>
+  <td>31</td>
+  <td>2009年12月15日(火) 03時00分31秒 +0000</td>
+  <td>file-0031.txt</td>
+  <td><a target="_blank" href="/files/foo/f_0031.txt">閲覧</a>
+  </td><td><a href="/downloads/31/act1">ダウンロード</a></td>
+  <td><button type="submit" name="button" data="/downloads/31/act1" class="download">ダウンロード</button></td>
+  <td><a href="/downloads/31/edit">Edit</a></td>
+  <td><a rel="nofollow" data-method="delete" data-confirm="Are you sure?" href="/downloads/31">Destroy</a></td>
+</tr>
+<tr>
+  <td>32</td>
+  <td>2009年12月14日(月) 15時00分32秒 +0000</td>
+  <td>file-0032.txt</td>
+  <td><a target="_blank" href="/files/foo/f_0032.txt">閲覧</a>
+  </td><td><a href="/downloads/32/act1">ダウンロード</a></td>
+  <td><button type="submit" name="button" data="/downloads/32/act1" class="download">ダウンロード</button></td>
+  <td><a href="/downloads/32/edit">Edit</a></td>
+  <td><a rel="nofollow" data-method="delete" data-confirm="Are you sure?" href="/downloads/32">Destroy</a></td>
+</tr>
+<tr>
+  <td>33</td>
+  <td>2009年12月14日(月) 03時00分33秒 +0000</td>
+  <td>file-0033.txt</td>
+  <td><a target="_blank" href="/files/foo/f_0033.txt">閲覧</a>
+  </td><td><a href="/downloads/33/act1">ダウンロード</a></td>
+  <td><button type="submit" name="button" data="/downloads/33/act1" class="download">ダウンロード</button></td>
+  <td><a href="/downloads/33/edit">Edit</a></td>
+  <td><a rel="nofollow" data-method="delete" data-confirm="Are you sure?" href="/downloads/33">Destroy</a></td>
+</tr>
+<tr>
+  <td>34</td>
+  <td>2009年12月13日(日) 15時00分34秒 +0000</td>
+  <td>file-0034.txt</td>
+  <td><a target="_blank" href="/files/foo/f_0034.txt">閲覧</a>
+  </td><td><a href="/downloads/34/act1">ダウンロード</a></td>
+  <td><button type="submit" name="button" data="/downloads/34/act1" class="download">ダウンロード</button></td>
+  <td><a href="/downloads/34/edit">Edit</a></td>
+  <td><a rel="nofollow" data-method="delete" data-confirm="Are you sure?" href="/downloads/34">Destroy</a></td>
+</tr>
+<tr>
+  <td>35</td>
+  <td>2009年12月13日(日) 03時00分35秒 +0000</td>
+  <td>file-0035.txt</td>
+  <td><a target="_blank" href="/files/foo/f_0035.txt">閲覧</a>
+  </td><td><a href="/downloads/35/act1">ダウンロード</a></td>
+  <td><button type="submit" name="button" data="/downloads/35/act1" class="download">ダウンロード</button></td>
+  <td><a href="/downloads/35/edit">Edit</a></td>
+  <td><a rel="nofollow" data-method="delete" data-confirm="Are you sure?" href="/downloads/35">Destroy</a></td>
+</tr>
+<tr>
+  <td>36</td>
+  <td>2009年12月12日(土) 15時00分36秒 +0000</td>
+  <td>file-0036.txt</td>
+  <td><a target="_blank" href="/files/foo/f_0036.txt">閲覧</a>
+  </td><td><a href="/downloads/36/act1">ダウンロード</a></td>
+  <td><button type="submit" name="button" data="/downloads/36/act1" class="download">ダウンロード</button></td>
+  <td><a href="/downloads/36/edit">Edit</a></td>
+  <td><a rel="nofollow" data-method="delete" data-confirm="Are you sure?" href="/downloads/36">Destroy</a></td>
+</tr>
+<tr>
+  <td>37</td>
+  <td>2009年12月12日(土) 03時00分37秒 +0000</td>
+  <td>file-0037.txt</td>
+  <td><a target="_blank" href="/files/foo/f_0037.txt">閲覧</a>
+  </td><td><a href="/downloads/37/act1">ダウンロード</a></td>
+  <td><button type="submit" name="button" data="/downloads/37/act1" class="download">ダウンロード</button></td>
+  <td><a href="/downloads/37/edit">Edit</a></td>
+  <td><a rel="nofollow" data-method="delete" data-confirm="Are you sure?" href="/downloads/37">Destroy</a></td>
+</tr>
+<tr>
+  <td>38</td>
+  <td>2009年12月11日(金) 15時00分38秒 +0000</td>
+  <td>file-0038.txt</td>
+  <td><a target="_blank" href="/files/foo/f_0038.txt">閲覧</a>
+  </td><td><a href="/downloads/38/act1">ダウンロード</a></td>
+  <td><button type="submit" name="button" data="/downloads/38/act1" class="download">ダウンロード</button></td>
+  <td><a href="/downloads/38/edit">Edit</a></td>
+  <td><a rel="nofollow" data-method="delete" data-confirm="Are you sure?" href="/downloads/38">Destroy</a></td>
+</tr>
+<tr>
+  <td>39</td>
+  <td>2009年12月11日(金) 03時00分39秒 +0000</td>
+  <td>file-0039.txt</td>
+  <td><a target="_blank" href="/files/foo/f_0039.txt">閲覧</a>
+  </td><td><a href="/downloads/39/act1">ダウンロード</a></td>
+  <td><button type="submit" name="button" data="/downloads/39/act1" class="download">ダウンロード</button></td>
+  <td><a href="/downloads/39/edit">Edit</a></td>
+  <td><a rel="nofollow" data-method="delete" data-confirm="Are you sure?" href="/downloads/39">Destroy</a></td>
+</tr>
+<tr>
+  <td>40</td>
+  <td>2009年12月10日(木) 15時00分40秒 +0000</td>
+  <td>file-0040.txt</td>
+  <td><a target="_blank" href="/files/foo/f_0040.txt">閲覧</a>
+  </td><td><a href="/downloads/40/act1">ダウンロード</a></td>
+  <td><button type="submit" name="button" data="/downloads/40/act1" class="download">ダウンロード</button></td>
+  <td><a href="/downloads/40/edit">Edit</a></td>
+  <td><a rel="nofollow" data-method="delete" data-confirm="Are you sure?" href="/downloads/40">Destroy</a></td>
+</tr>
+<tr>
+  <td>41</td>
+  <td>2009年12月10日(木) 03時00分41秒 +0000</td>
+  <td>file-0041.txt</td>
+  <td><a target="_blank" href="/files/foo/f_0041.txt">閲覧</a>
+  </td><td><a href="/downloads/41/act1">ダウンロード</a></td>
+  <td><button type="submit" name="button" data="/downloads/41/act1" class="download">ダウンロード</button></td>
+  <td><a href="/downloads/41/edit">Edit</a></td>
+  <td><a rel="nofollow" data-method="delete" data-confirm="Are you sure?" href="/downloads/41">Destroy</a></td>
+</tr>
+<tr>
+  <td>42</td>
+  <td>2009年12月09日(水) 15時00分42秒 +0000</td>
+  <td>file-0042.txt</td>
+  <td><a target="_blank" href="/files/foo/f_0042.txt">閲覧</a>
+  </td><td><a href="/downloads/42/act1">ダウンロード</a></td>
+  <td><button type="submit" name="button" data="/downloads/42/act1" class="download">ダウンロード</button></td>
+  <td><a href="/downloads/42/edit">Edit</a></td>
+  <td><a rel="nofollow" data-method="delete" data-confirm="Are you sure?" href="/downloads/42">Destroy</a></td>
+</tr>
+<tr>
+  <td>43</td>
+  <td>2009年12月09日(水) 03時00分43秒 +0000</td>
+  <td>file-0043.txt</td>
+  <td><a target="_blank" href="/files/foo/f_0043.txt">閲覧</a>
+  </td><td><a href="/downloads/43/act1">ダウンロード</a></td>
+  <td><button type="submit" name="button" data="/downloads/43/act1" class="download">ダウンロード</button></td>
+  <td><a href="/downloads/43/edit">Edit</a></td>
+  <td><a rel="nofollow" data-method="delete" data-confirm="Are you sure?" href="/downloads/43">Destroy</a></td>
+</tr>
+<tr>
+  <td>44</td>
+  <td>2009年12月08日(火) 15時00分44秒 +0000</td>
+  <td>file-0044.txt</td>
+  <td><a target="_blank" href="/files/foo/f_0044.txt">閲覧</a>
+  </td><td><a href="/downloads/44/act1">ダウンロード</a></td>
+  <td><button type="submit" name="button" data="/downloads/44/act1" class="download">ダウンロード</button></td>
+  <td><a href="/downloads/44/edit">Edit</a></td>
+  <td><a rel="nofollow" data-method="delete" data-confirm="Are you sure?" href="/downloads/44">Destroy</a></td>
+</tr>
+<tr>
+  <td>45</td>
+  <td>2009年12月08日(火) 03時00分45秒 +0000</td>
+  <td>file-0045.txt</td>
+  <td><a target="_blank" href="/files/foo/f_0045.txt">閲覧</a>
+  </td><td><a href="/downloads/45/act1">ダウンロード</a></td>
+  <td><button type="submit" name="button" data="/downloads/45/act1" class="download">ダウンロード</button></td>
+  <td><a href="/downloads/45/edit">Edit</a></td>
+  <td><a rel="nofollow" data-method="delete" data-confirm="Are you sure?" href="/downloads/45">Destroy</a></td>
+</tr>
+<tr>
+  <td>46</td>
+  <td>2009年12月07日(月) 15時00分46秒 +0000</td>
+  <td>file-0046.txt</td>
+  <td><a target="_blank" href="/files/foo/f_0046.txt">閲覧</a>
+  </td><td><a href="/downloads/46/act1">ダウンロード</a></td>
+  <td><button type="submit" name="button" data="/downloads/46/act1" class="download">ダウンロード</button></td>
+  <td><a href="/downloads/46/edit">Edit</a></td>
+  <td><a rel="nofollow" data-method="delete" data-confirm="Are you sure?" href="/downloads/46">Destroy</a></td>
+</tr>
+<tr>
+  <td>47</td>
+  <td>2009年12月07日(月) 03時00分47秒 +0000</td>
+  <td>file-0047.txt</td>
+  <td><a target="_blank" href="/files/foo/f_0047.txt">閲覧</a>
+  </td><td><a href="/downloads/47/act1">ダウンロード</a></td>
+  <td><button type="submit" name="button" data="/downloads/47/act1" class="download">ダウンロード</button></td>
+  <td><a href="/downloads/47/edit">Edit</a></td>
+  <td><a rel="nofollow" data-method="delete" data-confirm="Are you sure?" href="/downloads/47">Destroy</a></td>
+</tr>
+<tr>
+  <td>48</td>
+  <td>2009年12月06日(日) 15時00分48秒 +0000</td>
+  <td>file-0048.txt</td>
+  <td><a target="_blank" href="/files/foo/f_0048.txt">閲覧</a>
+  </td><td><a href="/downloads/48/act1">ダウンロード</a></td>
+  <td><button type="submit" name="button" data="/downloads/48/act1" class="download">ダウンロード</button></td>
+  <td><a href="/downloads/48/edit">Edit</a></td>
+  <td><a rel="nofollow" data-method="delete" data-confirm="Are you sure?" href="/downloads/48">Destroy</a></td>
+</tr>
+<tr>
+  <td>49</td>
+  <td>2009年12月06日(日) 03時00分49秒 +0000</td>
+  <td>file-0049.txt</td>
+  <td><a target="_blank" href="/files/foo/f_0049.txt">閲覧</a>
+  </td><td><a href="/downloads/49/act1">ダウンロード</a></td>
+  <td><button type="submit" name="button" data="/downloads/49/act1" class="download">ダウンロード</button></td>
+  <td><a href="/downloads/49/edit">Edit</a></td>
+  <td><a rel="nofollow" data-method="delete" data-confirm="Are you sure?" href="/downloads/49">Destroy</a></td>
+</tr>
+<tr>
+  <td>50</td>
+  <td>2009年12月05日(土) 15時00分50秒 +0000</td>
+  <td>file-0050.txt</td>
+  <td><a target="_blank" href="/files/foo/f_0050.txt">閲覧</a>
+  </td><td><a href="/downloads/50/act1">ダウンロード</a></td>
+  <td><button type="submit" name="button" data="/downloads/50/act1" class="download">ダウンロード</button></td>
+  <td><a href="/downloads/50/edit">Edit</a></td>
+  <td><a rel="nofollow" data-method="delete" data-confirm="Are you sure?" href="/downloads/50">Destroy</a></td>
+</tr>
+
+    </tbody>
+  </table>
+
+  <div id="paginator-buttom">
+      <nav class="pagination">
+    
+    
+        <span class="page current">
+  1
+</span>
+
+        <span class="page">
+  <a rel="next" data-remote="true" href="/?page=2">2</a>
+</span>
+
+        <span class="page">
+  <a data-remote="true" href="/?page=3">3</a>
+</span>
+
+        <span class="page">
+  <a data-remote="true" href="/?page=4">4</a>
+</span>
+
+        <span class="page">
+  <a data-remote="true" href="/?page=5">5</a>
+</span>
+
+        <span class="page gap">...</span>
+
+    <span class="next">
+  <a rel="next" data-remote="true" href="/?page=2">次ページ »</a>
+</span>
+
+    <span class="last">
+  <a data-remote="true" href="/?page=20">最後のページ</a>
+</span>
+
+  </nav>
+
+  </div>
+
+</div>
+
+
+
+
+</body><canvas id="fxdriver-screenshot-canvas" style="display: none;" width="945" height="1774"></canvas></html>

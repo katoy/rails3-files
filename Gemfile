@@ -71,3 +71,5 @@ gem 'log4r'
 
 gem 'rubocop'
 # gem 'tidy'
+gem 'progressbar', :require => false
+gem 'rmagick', :require => false

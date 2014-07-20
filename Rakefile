@@ -45,3 +45,11 @@ task :tidy do
     system "tidy -e -q #{f} 2>&1 | fgrep -v 'content occurs after end of body'"
   end
 end
+
+# diff images
+desc 'Diff scrennshoos latest and prev'
+task :diff_images do
+  FileUtils.rm_rf './diffs'
+  system 'bundle exec ruby tools/make-diffs.rb ./selenium-screenshots-prev ./selenium-screenshots'
+end
+

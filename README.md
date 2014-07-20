@@ -30,12 +30,13 @@ rails を走らせる。
 
     $ rake spec
     $ rake tidy
+    $ rake diff-images
 
 
 kaminari での ページネション操作を行い、そのスクリーンショットを selenoum-screenshots/*.png に撮る。  
 paage の http 内容を selenoum-htmlshots/*.html に撮る。  
 selenoum-htmlshots/*.html の内容を tidy を利用して、チェックする。  
-
+selenium_scurennshots/*.png とselenium_scurennshots-rev/*.png の画像の差分を  ./diffs/*.png に生成する。  
 
 初期設定からの変更
 ===================

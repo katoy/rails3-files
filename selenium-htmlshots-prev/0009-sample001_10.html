@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+  <title>Files</title>
+  <link type="text/css" rel="stylesheet" media="all" href="/assets/application.css?body=1" />
+<link type="text/css" rel="stylesheet" media="all" href="/assets/jquery-ui/theme.css?body=1" />
+<link type="text/css" rel="stylesheet" media="all" href="/assets/jquery-ui/core.css?body=1" />
+<link type="text/css" rel="stylesheet" media="all" href="/assets/jquery-ui/accordion.css?body=1" />
+<link type="text/css" rel="stylesheet" media="all" href="/assets/jquery-ui/menu.css?body=1" />
+<link type="text/css" rel="stylesheet" media="all" href="/assets/jquery-ui/autocomplete.css?body=1" />
+<link type="text/css" rel="stylesheet" media="all" href="/assets/jquery-ui/button.css?body=1" />
+<link type="text/css" rel="stylesheet" media="all" href="/assets/jquery-ui/datepicker.css?body=1" />
+<link type="text/css" rel="stylesheet" media="all" href="/assets/jquery-ui/draggable.css?body=1" />
+<link type="text/css" rel="stylesheet" media="all" href="/assets/jquery-ui/resizable.css?body=1" />
+<link type="text/css" rel="stylesheet" media="all" href="/assets/jquery-ui/dialog.css?body=1" />
+<link type="text/css" rel="stylesheet" media="all" href="/assets/jquery-ui/progressbar.css?body=1" />
+<link type="text/css" rel="stylesheet" media="all" href="/assets/jquery-ui/selectable.css?body=1" />
+<link type="text/css" rel="stylesheet" media="all" href="/assets/jquery-ui/selectmenu.css?body=1" />
+<link type="text/css" rel="stylesheet" media="all" href="/assets/jquery-ui/sortable.css?body=1" />
+<link type="text/css" rel="stylesheet" media="all" href="/assets/jquery-ui/slider.css?body=1" />
+<link type="text/css" rel="stylesheet" media="all" href="/assets/jquery-ui/spinner.css?body=1" />
+<link type="text/css" rel="stylesheet" media="all" href="/assets/jquery-ui/tabs.css?body=1" />
+<link type="text/css" rel="stylesheet" media="all" href="/assets/jquery-ui/tooltip.css?body=1" />
+<link type="text/css" rel="stylesheet" media="all" href="/assets/jquery-ui/base.css?body=1" />
+<link type="text/css" rel="stylesheet" media="all" href="/assets/jquery-ui/all.css?body=1" />
+<link type="text/css" rel="stylesheet" media="all" href="/assets/jquery-ui.css?body=1" />
+<link type="text/css" rel="stylesheet" media="all" href="/assets/downloads.css?body=1" />
+<link type="text/css" rel="stylesheet" media="all" href="/assets/wice_grid.css?body=1" />
+  <script type="text/javascript" src="/assets/jquery.js?body=1"></script>
+<script type="text/javascript" src="/assets/jquery-ui/core.js?body=1"></script>
+<script type="text/javascript" src="/assets/jquery-ui/datepicker.js?body=1"></script>
+<script type="text/javascript" src="/assets/jquery-ui/datepicker-ja.js?body=1"></script>
+<script type="text/javascript" src="/assets/jquery_ujs.js?body=1"></script>
+<script type="text/javascript" src="/assets/jquery.cookie.js?body=1"></script>
+<script type="text/javascript" src="/assets/list.js?body=1"></script>
+<script type="text/javascript" src="/assets/list.pagination.min.js?body=1"></script>
+<script type="text/javascript" src="/assets/wice_grid_processor.js?body=1"></script>
+<script type="text/javascript" src="/assets/wice_grid_init.js?body=1"></script>
+<script type="text/javascript" src="/assets/wice_grid_saved_queries_init.js?body=1"></script>
+<script type="text/javascript" src="/assets/wice_grid.js?body=1"></script>
+<script type="text/javascript" src="/assets/downloads.js?body=1"></script>
+<script type="text/javascript" src="/assets/application.js?body=1"></script>
+  <meta name="csrf-param" content="authenticity_token" />
+<meta name="csrf-token" content="z+golWgOgyU3V9CstbqCioQMvnMD7Thnj6zRYcX8Ojs=" />
+</head>
+<body>
+
+<h1>Listing downloads (paging by server: kaminari)</h1>
+
+<div>
+  <a href="/downloads">pagenate by Client</a> | 
+  <a href="/downloads/indexKaminari">more by Server (Kaminari)</a> | 
+  pagenate by Server(Kaminari) | 
+  <a href="/downloads/indexWicegrid">pagenate by Server(Wicegrid)</a>
+  <br /><br />
+  <hr />
+</div>
+
+<div class="center">
+  <!--
+  <div>
+    名前を検索: <input type="text" class="search" id="search-name">
+  </div>
+  -->
+  <div id="paginator-top">
+      <nav class="pagination">
+    
+    
+        <span class="page current">
+  1
+</span>
+
+        <span class="page">
+  <a rel="next" data-remote="true" href="/?direction=desc&amp;page=2&amp;sort=id">2</a>
+</span>
+
+        <span class="page">
+  <a data-remote="true" href="/?direction=desc&amp;page=3&amp;sort=id">3</a>
+</span>
+
+        <span class="page">
+  <a data-remote="true" href="/?direction=desc&amp;page=4&amp;sort=id">4</a>
+</span>
+
+        <span class="page">
+  <a data-remote="true" href="/?direction=desc&amp;page=5&amp;sort=id">5</a>
+</span>
+
+        <span class="page gap">...</span>
+
+    <span class="next">
+  <a rel="next" data-remote="true" href="/?direction=desc&amp;page=2&amp;sort=id">次ページ »</a>
+</span>
+
+    <span class="last">
+  <a data-remote="true" href="/?direction=desc&amp;page=100&amp;sort=id">最後のページ</a>
+</span>
+
+  </nav>
+
+  </div>
+  ダウンロードs の <b>1 - 10</b> 件を表示中 / <b>1000</b> 件
+  <table class="zebra_stripe center">
+    <thead>
+  <tr>
+    <th><a href="/?direction=asc&amp;sort=id">id</a> v</th>
+    <th><a href="/?direction=asc&amp;sort=open_at">公開日</a> </th>
+    <th><a href="/?direction=asc&amp;sort=name">名前</a> </th>
+    <th colspan="5"> 
+      表示<select name="page[per]" id="per-page"><option value="10">10</option>
+<option value="20">20</option>
+<option value="50">50</option>
+<option value="100">100</option>
+<option value="200">200</option>
+<option value="400">400</option>
+<option value="1000">1000</option></select>件
+    </th>
+  </tr>
+</thead>
+
+    <tbody id="downloads">
+      <tr>
+  <td>1000</td>
+  <td>2008年08月17日(日) 15時16分40秒 +0000</td>
+  <td>file-1000.txt</td>
+  <td><a target="_blank" href="/files/foo/f_0000.txt">閲覧</a>
+  </td><td><a href="/downloads/1000/act1">ダウンロード</a></td>
+  <td><button type="submit" name="button" data="/downloads/1000/act1" class="download">ダウンロード</button></td>
+  <td><a href="/downloads/1000/edit">Edit</a></td>
+  <td><a rel="nofollow" data-method="delete" data-confirm="Are you sure?" href="/downloads/1000">Destroy</a></td>
+</tr>
+<tr>
+  <td>999</td>
+  <td>2008年08月18日(月) 03時16分39秒 +0000</td>
+  <td>file-0999.txt</td>
+  <td><a target="_blank" href="/files/foo/f_0999.txt">閲覧</a>
+  </td><td><a href="/downloads/999/act1">ダウンロード</a></td>
+  <td><button type="submit" name="button" data="/downloads/999/act1" class="download">ダウンロード</button></td>
+  <td><a href="/downloads/999/edit">Edit</a></td>
+  <td><a rel="nofollow" data-method="delete" data-confirm="Are you sure?" href="/downloads/999">Destroy</a></td>
+</tr>
+<tr>
+  <td>998</td>
+  <td>2008年08月18日(月) 15時16分38秒 +0000</td>
+  <td>file-0998.txt</td>
+  <td><a target="_blank" href="/files/foo/f_0998.txt">閲覧</a>
+  </td><td><a href="/downloads/998/act1">ダウンロード</a></td>
+  <td><button type="submit" name="button" data="/downloads/998/act1" class="download">ダウンロード</button></td>
+  <td><a href="/downloads/998/edit">Edit</a></td>
+  <td><a rel="nofollow" data-method="delete" data-confirm="Are you sure?" href="/downloads/998">Destroy</a></td>
+</tr>
+<tr>
+  <td>997</td>
+  <td>2008年08月19日(火) 03時16分37秒 +0000</td>
+  <td>file-0997.txt</td>
+  <td><a target="_blank" href="/files/foo/f_0997.txt">閲覧</a>
+  </td><td><a href="/downloads/997/act1">ダウンロード</a></td>
+  <td><button type="submit" name="button" data="/downloads/997/act1" class="download">ダウンロード</button></td>
+  <td><a href="/downloads/997/edit">Edit</a></td>
+  <td><a rel="nofollow" data-method="delete" data-confirm="Are you sure?" href="/downloads/997">Destroy</a></td>
+</tr>
+<tr>
+  <td>996</td>
+  <td>2008年08月19日(火) 15時16分36秒 +0000</td>
+  <td>file-0996.txt</td>
+  <td><a target="_blank" href="/files/foo/f_0996.txt">閲覧</a>
+  </td><td><a href="/downloads/996/act1">ダウンロード</a></td>
+  <td><button type="submit" name="button" data="/downloads/996/act1" class="download">ダウンロード</button></td>
+  <td><a href="/downloads/996/edit">Edit</a></td>
+  <td><a rel="nofollow" data-method="delete" data-confirm="Are you sure?" href="/downloads/996">Destroy</a></td>
+</tr>
+<tr>
+  <td>995</td>
+  <td>2008年08月20日(水) 03時16分35秒 +0000</td>
+  <td>file-0995.txt</td>
+  <td><a target="_blank" href="/files/foo/f_0995.txt">閲覧</a>
+  </td><td><a href="/downloads/995/act1">ダウンロード</a></td>
+  <td><button type="submit" name="button" data="/downloads/995/act1" class="download">ダウンロード</button></td>
+  <td><a href="/downloads/995/edit">Edit</a></td>
+  <td><a rel="nofollow" data-method="delete" data-confirm="Are you sure?" href="/downloads/995">Destroy</a></td>
+</tr>
+<tr>
+  <td>994</td>
+  <td>2008年08月20日(水) 15時16分34秒 +0000</td>
+  <td>file-0994.txt</td>
+  <td><a target="_blank" href="/files/foo/f_0994.txt">閲覧</a>
+  </td><td><a href="/downloads/994/act1">ダウンロード</a></td>
+  <td><button type="submit" name="button" data="/downloads/994/act1" class="download">ダウンロード</button></td>
+  <td><a href="/downloads/994/edit">Edit</a></td>
+  <td><a rel="nofollow" data-method="delete" data-confirm="Are you sure?" href="/downloads/994">Destroy</a></td>
+</tr>
+<tr>
+  <td>993</td>
+  <td>2008年08月21日(木) 03時16分33秒 +0000</td>
+  <td>file-0993.txt</td>
+  <td><a target="_blank" href="/files/foo/f_0993.txt">閲覧</a>
+  </td><td><a href="/downloads/993/act1">ダウンロード</a></td>
+  <td><button type="submit" name="button" data="/downloads/993/act1" class="download">ダウンロード</button></td>
+  <td><a href="/downloads/993/edit">Edit</a></td>
+  <td><a rel="nofollow" data-method="delete" data-confirm="Are you sure?" href="/downloads/993">Destroy</a></td>
+</tr>
+<tr>
+  <td>992</td>
+  <td>2008年08月21日(木) 15時16分32秒 +0000</td>
+  <td>file-0992.txt</td>
+  <td><a target="_blank" href="/files/foo/f_0992.txt">閲覧</a>
+  </td><td><a href="/downloads/992/act1">ダウンロード</a></td>
+  <td><button type="submit" name="button" data="/downloads/992/act1" class="download">ダウンロード</button></td>
+  <td><a href="/downloads/992/edit">Edit</a></td>
+  <td><a rel="nofollow" data-method="delete" data-confirm="Are you sure?" href="/downloads/992">Destroy</a></td>
+</tr>
+<tr>
+  <td>991</td>
+  <td>2008年08月22日(金) 03時16分31秒 +0000</td>
+  <td>file-0991.txt</td>
+  <td><a target="_blank" href="/files/foo/f_0991.txt">閲覧</a>
+  </td><td><a href="/downloads/991/act1">ダウンロード</a></td>
+  <td><button type="submit" name="button" data="/downloads/991/act1" class="download">ダウンロード</button></td>
+  <td><a href="/downloads/991/edit">Edit</a></td>
+  <td><a rel="nofollow" data-method="delete" data-confirm="Are you sure?" href="/downloads/991">Destroy</a></td>
+</tr>
+
+    </tbody>
+  </table>
+
+  <div id="paginator-buttom">
+      <nav class="pagination">
+    
+    
+        <span class="page current">
+  1
+</span>
+
+        <span class="page">
+  <a rel="next" data-remote="true" href="/?direction=desc&amp;page=2&amp;sort=id">2</a>
+</span>
+
+        <span class="page">
+  <a data-remote="true" href="/?direction=desc&amp;page=3&amp;sort=id">3</a>
+</span>
+
+        <span class="page">
+  <a data-remote="true" href="/?direction=desc&amp;page=4&amp;sort=id">4</a>
+</span>
+
+        <span class="page">
+  <a data-remote="true" href="/?direction=desc&amp;page=5&amp;sort=id">5</a>
+</span>
+
+        <span class="page gap">...</span>
+
+    <span class="next">
+  <a rel="next" data-remote="true" href="/?direction=desc&amp;page=2&amp;sort=id">次ページ »</a>
+</span>
+
+    <span class="last">
+  <a data-remote="true" href="/?direction=desc&amp;page=100&amp;sort=id">最後のページ</a>
+</span>
+
+  </nav>
+
+  </div>
+
+</div>
+
+
+
+
+</body><canvas id="fxdriver-screenshot-canvas" style="display: none;" width="945" height="574"></canvas></html>
