@@ -20,8 +20,8 @@ require File.join(File.expand_path(File.dirname(__FILE__)), 'shots')
 
 SCREENSHOTS_DIR = 'selenium-screenshots'.freeze
 HTMLSHOTS_DIR = 'selenium-htmlshots'.freeze
-DRIVER = Selenium::WebDriver.for :phantomjs
-# DRIVER = Selenium::WebDriver.for :firefox
+# DRIVER = Selenium::WebDriver.for :phantomjs
+DRIVER = Selenium::WebDriver.for :firefox
 SHOTS = Shots.new
 
 #

@@ -37,6 +37,7 @@ $ ->
 
   # 絞り込み処理
   my_search = (pat) ->
+    return @ unless fileList
     st = (new Date()).getTime()
     fileList.search(pat)
     et = (new Date()).getTime()
@@ -49,10 +50,12 @@ $ ->
   $('#per-page').change ->
     per_page = $("#per-page option:selected").text()
     $.cookie('per_page', per_page, {expires: 30, path: '/'})
+    location.reload() unless fileList
+
     [sortcols, direction] = my_find_sort_info()
     i.show() for i in fileList.items
     listOgject = my_show_paging()
-    listOgject.search($('.search').val())
+    listOgject.search($('.search').val()) if $('.search')
     my_sort(sortcols, direction) if sortcols.length && direction
     listOgject
     @
@@ -71,4 +74,4 @@ $ ->
 
   # HTMLがロード後にページネーション表示する
   # その後の ソート、絞り込み、表示件数変更は, ロードされた HTML で処理する。
-  fileList = my_show_paging()
+  fileList = my_show_paging() if $('#file-list').length > 0
