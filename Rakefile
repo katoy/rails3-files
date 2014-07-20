@@ -3,9 +3,11 @@
 # for example lib/tasks/capistrano.rake, and they will automatically be available to Rake.
 
 require File.expand_path('../config/application', __FILE__)
-Files::Application.load_tasks
-
+require 'yard'
+require 'yard/rake/yardoc_task'
 require 'rubocop/rake_task'
+
+Files::Application.load_tasks
 
 # clear
 desc 'Delete doc/* **/#* **/*~ **/*.log tmp/*'
@@ -16,6 +18,18 @@ task :clean do
   Dir.glob('**/*~').each { |f| FileUtils.rm f }
   Dir.glob('**/#*').each { |f| FileUtils.rm f }
   Dir.glob('**/*.log').each { |f| FileUtils.rm f }
+end
+
+YARD::Rake::YardocTask.new do |t|
+  t.files = %w(
+      app/models/**/*.rb
+      app/controllers/**/*.rb
+      app/helpers/**/*.rb
+      app/mailers/**/*.rb
+      lib/**/*.rb
+    )
+  t.options = []
+  t.options = %w(--debug --verbose) if $trace
 end
 
 # rubocop
@@ -53,3 +67,7 @@ task :diff_images do
   system 'bundle exec ruby tools/make-diffs.rb ./selenium-screenshots-prev ./selenium-screenshots'
 end
 
+desc 'metrics'
+task :metrics do
+  system 'metric_fu'
+end

@@ -57,6 +57,13 @@ group :development, :test do
   gem 'launchy'
   gem 'poltergeist'
   gem 'rspec-rails', '~> 3.0.0'
+
+  gem 'rails-erd', :require => false
+  gem 'metric_fu', :require => false
+  gem 'progressbar', :require => false
+  gem 'rmagick', :require => false
+  gem 'rdoc', :require => false
+  gem 'yard', :require => false
 end
 
 # we need Feb 16, 2013 "fix i18n translate entry_name pluralize for page_entities_info helper" in kaminari
@@ -71,5 +78,3 @@ gem 'log4r'
 
 gem 'rubocop'
 # gem 'tidy'
-gem 'progressbar', :require => false
-gem 'rmagick', :require => false
