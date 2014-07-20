@@ -1,0 +1,16 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+<% TOTAL_DATA = 1000 %>
+
+<% require 'date' %>
+<% require 'time' %>
+
+<% t = Time.parse("2009-12-31 00:00:00") %>
+
+<% (1..TOTAL_DATA).each do |idx| %>
+<%= "file_#{idx}:" %>
+  id: <%= idx %>
+  name: <%= "file-#{format('%04d', idx)}.txt" %>
+  path: <%= "files/foo/f_#{format('%04d', idx % 1000)}.txt" %>
+  open_at: <%= t - idx * (60 * 60 * 12) + idx %>
+<% end%>
