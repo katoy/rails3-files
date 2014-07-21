@@ -314,6 +314,7 @@ DEPENDENCIES
   pry-rails
   pry-remote
   pry-stack_explorer
+  rack
   rails (~> 3.2.13)
   rails-erd
   rdoc
