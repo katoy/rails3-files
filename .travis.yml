@@ -16,3 +16,5 @@ script:
   - # RAILS_ENV=test bundle exec rake test
   - bundle exec rake spec
   - bundle exec rake diff_images
+  - ls -algt db
+  - ls -algt selenium-screenshots selenium-htmlshots
