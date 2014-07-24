@@ -8,12 +8,12 @@ cache: bundler
 before_script:
   - export DISPLAY=:99.0
   - sh -e /etc/init.d/xvfb start
-  - bundle exec rake db:create db:migrate db:fixtures:load
-  - bundle exec rackup -p 3000 &
+  - RAILS_ENV=test bundle exec rake db:create db:migrate db:fixtures:load
+  - bundle exec rackup -p 3000 -e test &
   - sleep 10
 script:
   - # bundle exec rake test
   - ls -algt db
-  - bundle exec rake spec
+  - RAILS_ENV=test bundle exec rake spec
   - ls -algt db
   - bundle exec rake diff_images

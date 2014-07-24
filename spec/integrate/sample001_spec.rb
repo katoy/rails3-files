@@ -6,6 +6,8 @@ require 'rails_helper'
 
 describe 'SAMPLE_001' do
 
+  fixtures :downloads
+
   before(:all) do
     @wd = DRIVER
     @shots = SHOTS
