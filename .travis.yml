@@ -1,10 +1,15 @@
 language: ruby
+cache:
+  apt: true
+  bundler: true
+  directories:
+  - vendor/something
+  - .autoconf
 rvm:
   - 2.1.2
 env:
   - DB=sqlite
 bundler_args: --without production
-cache: bundler
 before_script:
   - export DISPLAY=:99.0
   - sh -e /etc/init.d/xvfb start

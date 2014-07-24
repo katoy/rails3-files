@@ -78,6 +78,6 @@ gem 'log4r'
 # gem 'rack-mini-profiler'
 # gem 'thin'
 
-gem 'rack'
+# gem 'rack'
 gem 'rubocop'
 # gem 'tidy'
