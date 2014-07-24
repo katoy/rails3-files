@@ -63,7 +63,7 @@ group :development, :test do
   gem 'rails-erd', :require => false
   gem 'metric_fu', :require => false
   gem 'progressbar', :require => false
-  gem 'rmagick', :require => false
+  gem 'rmagick'
   gem 'rdoc', :require => false
   gem 'yard', :require => false
 end

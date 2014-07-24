@@ -74,7 +74,7 @@ def make_diff(dir_prev, dir_cur, dir_diff)
   ans += diffs_name.join("\n") + "\n\n"
   ans += "変化あり: #{diffs} file(s)\n"
   ans += "変化なし: #{sames} file(s)\n"
-  ans
+  [diffs, ans]
 end
 
 # ------------------------------------------------
@@ -97,7 +97,8 @@ if __FILE__ == $PROGRAM_NAME
     dir_prev = ARGV[0] if ARGV.size > 0
     dir_cur = ARGV[1] if ARGV.size > 1
     dir_diff = ARGV[2] if ARGV.size > 2
-    ans = make_diff(File.expand_path(dir_prev), File.expand_path(dir_cur), File.expand_path(dir_diff))
+    diffs, ans = make_diff(File.expand_path(dir_prev), File.expand_path(dir_cur), File.expand_path(dir_diff))
     puts ans
+    exit (diffs == 0)? 0 : 1
   }
 end

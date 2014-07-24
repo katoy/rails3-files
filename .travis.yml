@@ -13,7 +13,5 @@ before_script:
   - sleep 10
 script:
   - # bundle exec rake test
-  - ls -algt db
   - RAILS_ENV=test bundle exec rake spec
-  - ls -algt db
   - bundle exec rake diff_images
