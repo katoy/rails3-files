@@ -23,14 +23,14 @@ rails を走らせる。
 
     $ rake db:drop
     $ rake db:migrate
-    $ rake db:fixturs:load
+    $ rake db:fixtures:load
     $ rake s
 
 別の端末で以下を行う。
 
     $ rake spec
     $ rake tidy
-    $ rake diff-images
+    $ rake diff_images
 
 
 kaminari での ページネション操作を行い、そのスクリーンショットを selenoum-screenshots/*.png に撮る。  

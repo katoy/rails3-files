@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
 gem 'rails', '~>3.2.13'
 
-gem 'nokogiri', '1.6.2'
+gem 'nokogiri', '>= 1.6.2'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
@@ -66,6 +66,8 @@ group :development, :test do
   gem 'rmagick'
   gem 'rdoc', :require => false
   gem 'yard', :require => false
+
+  gem 'test-unit'
 end
 
 # we need Feb 16, 2013 "fix i18n translate entry_name pluralize for page_entities_info helper" in kaminari
